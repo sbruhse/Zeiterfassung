@@ -3,7 +3,7 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>110</x>
+      <x>100</x>
       <y>30</y>
       <w>530</w>
       <h>580</h>
@@ -15,7 +15,7 @@ halign=left</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>10</x>
+      <x>0</x>
       <y>250</y>
       <w>80</w>
       <h>100</h>
@@ -26,7 +26,7 @@ halign=left</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>120</x>
+      <x>110</x>
       <y>530</y>
       <w>150</w>
       <h>40</h>
@@ -37,7 +37,7 @@ halign=left</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>290</x>
+      <x>280</x>
       <y>380</y>
       <w>140</w>
       <h>40</h>
@@ -49,7 +49,7 @@ verwalten</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>450</x>
+      <x>440</x>
       <y>60</y>
       <w>130</w>
       <h>50</h>
@@ -61,7 +61,7 @@ starten</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>380</x>
+      <x>370</x>
       <y>440</y>
       <w>140</w>
       <h>60</h>
@@ -72,7 +72,7 @@ starten</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>230</x>
+      <x>220</x>
       <y>160</y>
       <w>140</w>
       <h>50</h>
@@ -84,7 +84,7 @@ verwalten</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>340</x>
+      <x>330</x>
       <y>280</y>
       <w>140</w>
       <h>60</h>
@@ -96,7 +96,7 @@ drucken</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>380</x>
+      <x>370</x>
       <y>190</y>
       <w>140</w>
       <h>40</h>
@@ -107,7 +107,7 @@ drucken</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>490</x>
+      <x>480</x>
       <y>350</y>
       <w>120</w>
       <h>60</h>
@@ -119,7 +119,7 @@ exportieren</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>480</x>
+      <x>470</x>
       <y>230</y>
       <w>140</w>
       <h>60</h>
@@ -131,7 +131,7 @@ drucken</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>200</x>
+      <x>190</x>
       <y>450</y>
       <w>120</w>
       <h>50</h>
@@ -143,7 +143,7 @@ verwalten</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>450</x>
+      <x>440</x>
       <y>120</y>
       <w>130</w>
       <h>50</h>
@@ -155,7 +155,7 @@ stoppen</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>190</x>
+      <x>180</x>
       <y>90</y>
       <w>120</w>
       <h>50</h>
@@ -167,7 +167,7 @@ verwalten</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>300</x>
+      <x>290</x>
       <y>110</y>
       <w>170</w>
       <h>50</h>
@@ -179,7 +179,7 @@ verwalten</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>300</x>
+      <x>290</x>
       <y>70</y>
       <w>170</w>
       <h>60</h>
@@ -191,7 +191,7 @@ verwalten</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>70</x>
+      <x>60</x>
       <y>110</y>
       <w>140</w>
       <h>180</h>
@@ -202,7 +202,7 @@ verwalten</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>70</x>
+      <x>60</x>
       <y>170</y>
       <w>180</w>
       <h>120</h>
@@ -213,7 +213,7 @@ verwalten</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>70</x>
+      <x>60</x>
       <y>200</y>
       <w>330</w>
       <h>90</h>
@@ -224,7 +224,7 @@ verwalten</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>70</x>
+      <x>60</x>
       <y>250</y>
       <w>430</w>
       <h>50</h>
@@ -235,7 +235,7 @@ verwalten</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>70</x>
+      <x>60</x>
       <y>280</y>
       <w>290</w>
       <h>50</h>
@@ -246,7 +246,7 @@ verwalten</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>70</x>
+      <x>60</x>
       <y>300</y>
       <w>440</w>
       <h>100</h>
@@ -257,7 +257,7 @@ verwalten</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>70</x>
+      <x>60</x>
       <y>310</y>
       <w>250</w>
       <h>100</h>
@@ -268,7 +268,7 @@ verwalten</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>70</x>
+      <x>60</x>
       <y>310</y>
       <w>330</w>
       <h>180</h>
@@ -279,7 +279,7 @@ verwalten</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>70</x>
+      <x>60</x>
       <y>310</y>
       <w>180</w>
       <h>160</h>
@@ -290,7 +290,7 @@ verwalten</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>70</x>
+      <x>60</x>
       <y>310</y>
       <w>140</w>
       <h>240</h>
