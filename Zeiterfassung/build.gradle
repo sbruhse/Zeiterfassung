@@ -14,6 +14,11 @@ if (!hasProperty('mainClass')) {
     ext.mainClass = 'zeiterfassung.Zeiterfassung'
 }
 
+apply plugin: 'application'
+
+mainClassName = 'zeiterfassung.Zeiterfassung'
+
+
 repositories {
     mavenCentral()
     // You may define additional repositories, or even remove "mavenCentral()".
