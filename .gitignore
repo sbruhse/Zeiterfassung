@@ -1,0 +1,6 @@
+/Zeiterfassung/.idea/
+.nb-gradle/
+/build/
+.gradle/
+*.iml
+
