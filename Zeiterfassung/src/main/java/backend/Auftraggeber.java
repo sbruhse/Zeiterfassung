@@ -16,6 +16,6 @@ public class Auftraggeber {
 
 
     void auftraggeberHinzufuegen() {
-        
+
     }
 }
