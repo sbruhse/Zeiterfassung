@@ -3,7 +3,7 @@ package backend;
 /**
  * Created by sellmer on 08.06.17.
  */
-public class Bereich {
+public class identitaet {
     private String name;
 
     public String getName() {
@@ -14,14 +14,5 @@ public class Bereich {
         this.name = name;
     }
 
-    public Bereich() {
-    }
 
-    void bereichErstellen(){
-
-    }
-
-    void bereichBearbeiten(){
-
-    }
 }
