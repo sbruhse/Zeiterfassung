@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>6</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>534</x>
+      <y>216</y>
+      <w>162</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>Main GUI
+--
+--
+-Auftraggeber verwalten()
+-Identitäten verwalten ()
+-Projekte verwalten()
+-Bereiche verwalten()
+-Arbeitszeit verwalten()
+-Aufgaben verwalten()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>252</x>
+      <y>276</y>
+      <w>150</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>Auftraggeber GUI
+--
+--
+-Arbeitgeberübersicht aufrufen()
+-Arbeitgeber wählen()
+-Arbeitgeber hinzufügen()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>390</x>
+      <y>342</y>
+      <w>102</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>Identitäten GUI
+--
+--
+-Identität anlegen()
+-Identität auswählen()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>696</x>
+      <y>366</y>
+      <w>102</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>Bereiche GUI
+--
+--
+-Bereich anlegen()
+-Bereich auswählen()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>462</x>
+      <y>414</y>
+      <w>96</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>Projekte GUI
+--
+--
+-Projekt anlegen()
+-Projekt auswählen()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>804</x>
+      <y>438</y>
+      <w>96</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>Arbeitszeit GUI
+--
+--
+-Arbeitszeit starten()
+-Arbeitszeit stoppen()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>918</x>
+      <y>438</y>
+      <w>108</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>Aufgaben GUI
+--
+--
+-Aufgabe anlegen()
+-Aufgabe auswählen()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>318</x>
+      <y>234</y>
+      <w>228</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0;360.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>426</x>
+      <y>240</y>
+      <w>120</w>
+      <h>114</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;170.0;10.0;10.0;180.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>498</x>
+      <y>252</y>
+      <w>48</w>
+      <h>174</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;270.0;10.0;10.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>690</x>
+      <y>264</y>
+      <w>72</w>
+      <h>114</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>100.0;170.0;100.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>690</x>
+      <y>276</y>
+      <w>174</w>
+      <h>174</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>270.0;270.0;270.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>690</x>
+      <y>288</y>
+      <w>294</w>
+      <h>162</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>470.0;250.0;470.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1038</x>
+      <y>528</y>
+      <w>144</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Aufgabe auswählen GUI
+--
+--
+-Aufgabe löschen()
+-Aufgabe bearbeiten()
+-Aufgabe zu Projekt hinzufügen()
+-Aufgabe zu Bereich hinzufügen()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1020</x>
+      <y>462</y>
+      <w>84</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>120.0;110.0;120.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>606</x>
+      <y>480</y>
+      <w>102</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>Bereich auswählen GUI
+--
+--
+-Bereich löschen()
+-Bereich bearbeiten()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>642</x>
+      <y>396</y>
+      <w>66</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;140.0;10.0;10.0;90.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>402</x>
+      <y>540</y>
+      <w>108</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>Projekt auswählen GUI
+--
+--
+-Projekt löschen()
+-Projekt bearbeiten()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>426</x>
+      <y>438</y>
+      <w>48</w>
+      <h>114</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;170.0;10.0;10.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>270</x>
+      <y>420</y>
+      <w>114</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>Identität auswählen GUI
+--
+--
+-Identität löschen()
+-Identität bearbeiten()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>312</x>
+      <y>366</y>
+      <w>90</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;90.0;10.0;10.0;130.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>126</x>
+      <y>396</y>
+      <w>126</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>Auftraggeber auswählen GUI
+--
+--
+-Auftraggeber löschen()
+-Auftraggeber bearbeiten()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>174</x>
+      <y>300</y>
+      <w>90</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;160.0;10.0;10.0;130.0;10.0</additional_attributes>
+  </element>
+</diagram>
