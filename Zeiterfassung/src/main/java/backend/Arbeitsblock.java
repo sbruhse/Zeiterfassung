@@ -6,7 +6,8 @@ import java.util.Date;
  * Created by lasse on 08.06.17.
  */
 
-public class Arbeitsblock {
+public class Arbeitsblock 
+{
 	
 	private Date startzeit;
 	private Date endzeit;
