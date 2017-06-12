@@ -37,7 +37,7 @@ public class Arbeitsblock
 
 	/**
 	 * Getter für {@link #startzeit startzeit}
-	 * @return
+	 * @return Startzeit
 	 */
 	public Date getStartzeit() 
 	{
@@ -46,7 +46,7 @@ public class Arbeitsblock
 
 	/**
 	 * Setter für {@link #startzeit startzeit}
-	 * @param startzeit
+	 * @param startzeit Startzeit
 	 */
 	public void setStartzeit(Date startzeit) 
 	{
@@ -55,7 +55,7 @@ public class Arbeitsblock
 
 	/**
 	 * Getter für {@link #endzeit endzeit}
-	 * @return
+	 * @return Endzeit
 	 */
 	public Date getEndzeit() 
 	{
@@ -64,7 +64,7 @@ public class Arbeitsblock
 
 	/**
 	 * Setter für {@link #endzeit endzeit}
-	 * @param endzeit
+	 * @param endzeit Endzeit
 	 */
 	public void setEndzeit(Date endzeit) 
 	{
@@ -73,7 +73,7 @@ public class Arbeitsblock
 
 	/**
 	 * Getter für {@link #bereich bereich}
-	 * @return
+	 * @return Bereich
 	 */
 	public Bereich getBereich() 
 	{
@@ -82,7 +82,7 @@ public class Arbeitsblock
 
 	/**
 	 * Setter für {@link #bereich bereich}
-	 * @param bereich
+	 * @param bereich Bereich
 	 */
 	public void setBereich(Bereich bereich) 
 	{
@@ -91,7 +91,7 @@ public class Arbeitsblock
 
 	/**
 	 * Getter für {@link #aufgabe aufgabe}
-	 * @return
+	 * @return Aufgabe
 	 */
 	public Aufgaben getAufgabe() 
 	{
@@ -100,7 +100,7 @@ public class Arbeitsblock
 
 	/**
 	 * Setter für {@link #aufgabe aufgabe}
-	 * @param aufgabe
+	 * @param aufgabe Aufgabe
 	 */
 	public void setAufgabe(Aufgaben aufgabe) 
 	{
@@ -109,7 +109,7 @@ public class Arbeitsblock
 
 	/**
 	 * Getter für {@link #beschreibung beschreibung}
-	 * @return
+	 * @return Beschreibung
 	 */
 	public String getBeschreibung() 
 	{
@@ -118,7 +118,7 @@ public class Arbeitsblock
 
 	/**
 	 * Setter für {@link #beschreibung beschreibung}
-	 * @return
+	 * @return Beschreibung
 	 */
 	public void setBeschreibung(String beschreibung) 
 	{
