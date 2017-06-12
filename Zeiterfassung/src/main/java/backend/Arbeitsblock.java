@@ -118,7 +118,7 @@ public class Arbeitsblock
 
 	/**
 	 * Setter für {@link #beschreibung beschreibung}
-	 * @return Beschreibung
+	 * @param beschreibung Beschreibung
 	 */
 	public void setBeschreibung(String beschreibung) 
 	{
