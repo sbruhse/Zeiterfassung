@@ -3,7 +3,7 @@ package backend;
 /**
  * Created by sellmer on 08.06.17.
  */
-public class Rechnung
+public class Rechnung extends Dokument
 {
 	private float preis;
 	private float stundensatz;
