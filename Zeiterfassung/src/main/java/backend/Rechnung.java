@@ -3,26 +3,32 @@ package backend;
 /**
  * Created by sellmer on 08.06.17.
  */
-public class Rechnung {
-    private float preis;
-    private float stundensatz;
+public class Rechnung
+{
+	private float preis;
+	private float stundensatz;
 
-    public float getPreis() {
-        return preis;
-    }
+	public float getPreis()
+	{
+		return preis;
+	}
 
-    public void setPreis(float preis) {
-        this.preis = preis;
-    }
+	public void setPreis(float preis)
+	{
+		this.preis = preis;
+	}
 
-    public float getStundensatz() {
-        return stundensatz;
-    }
+	public float getStundensatz()
+	{
+		return stundensatz;
+	}
 
-    public void setStundensatz(float stundensatz) {
-        this.stundensatz = stundensatz;
-    }
+	public void setStundensatz(float stundensatz)
+	{
+		this.stundensatz = stundensatz;
+	}
 
-    public Rechnung() {
-    }
+	public Rechnung()
+	{
+	}
 }
