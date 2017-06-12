@@ -1,9 +1,12 @@
 package backend;
 
 /**
- * Created by sellmer on 08.06.17.
+ * @author sellmer
  */
 public class Stundenzettel extends Dokument
 {
+	/**
+	 * Dokument zum Stunden auflisten
+	 */
 
 }
