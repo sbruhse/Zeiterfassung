@@ -1,17 +1,29 @@
 package backend;
 
 /**
- * Created by sellmer on 08.06.17.
+ * @author sellmer
+ * Identität eines Arbeitenden
  */
 public class Identitaet
 {
+	/**
+	 * Name der Identität
+	 */
 	private String name;
 
+	/**
+	 * 
+	 * @return name
+	 */
 	public String getName()
 	{
 		return name;
 	}
 
+	/**
+	 * sets name
+	 * @param name
+	 */
 	public void setName(String name)
 	{
 		this.name = name;
