@@ -14,7 +14,7 @@ public class Bereich
 
 	/**
 	 * Getter für {@link #name name}
-	 * @return
+	 * @return Name
 	 */
 	public String getName()
 	{
@@ -23,7 +23,7 @@ public class Bereich
 
 	/**
 	 * Setter für {@link #name name}
-	 * @param name
+	 * @param name name
 	 */
 	public void setName(String name)
 	{
