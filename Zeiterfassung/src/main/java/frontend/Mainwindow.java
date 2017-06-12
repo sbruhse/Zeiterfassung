@@ -20,7 +20,7 @@ public class Mainwindow extends Application{
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        primaryStage.setTitle("Windowtitle");
+        primaryStage.setTitle("Zeiterfassung");
         button = new Button();
         button.setText("Click me");
 
