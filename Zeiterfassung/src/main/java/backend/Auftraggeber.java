@@ -34,7 +34,7 @@ public class Auftraggeber
 
 	/**
 	 * Getter für {@link #vorname vorname}
-	 * @return
+	 * @return Vorname
 	 */
 	public String getVorname()
 	{
@@ -43,7 +43,7 @@ public class Auftraggeber
 
 	/**
 	 * Setter für {@link #vorname vorname}
-	 * @param vorname
+	 * @param vorname Vorname
 	 */
 	public void setVorname(String vorname)
 	{
@@ -52,7 +52,7 @@ public class Auftraggeber
 
 	/**
 	 * Getter für {@link #nachname nachname}
-	 * @return
+	 * @return Nachname
 	 */
 	public String getNachname()
 	{
@@ -61,7 +61,7 @@ public class Auftraggeber
 
 	/**
 	 * Setter für {@link #nachname nachname}
-	 * @param nachname
+	 * @param nachname Nachname
 	 */
 	public void setNachname(String nachname)
 	{
@@ -70,7 +70,7 @@ public class Auftraggeber
 
 	/**
 	 * Getter für {@link #stadt stadt}
-	 * @return
+	 * @return Stadt
 	 */
 	public String getStadt()
 	{
@@ -79,7 +79,7 @@ public class Auftraggeber
 
 	/**
 	 * Setter für {@link #stadt stadt}
-	 * @param stadt
+	 * @param stadt Stadt
 	 */
 	public void setStadt(String stadt)
 	{
@@ -88,7 +88,7 @@ public class Auftraggeber
 
 	/**
 	 * Getter für {@link #plz plz}
-	 * @return
+	 * @return Stadt
 	 */
 	public String getPlz()
 	{
@@ -97,7 +97,7 @@ public class Auftraggeber
 
 	/**
 	 * Setter für {@link #plz plz}
-	 * @param plz
+	 * @param plz plz
 	 */
 	public void setPlz(String plz)
 	{
@@ -106,7 +106,7 @@ public class Auftraggeber
 
 	/**
 	 * Getter für {@link #strasse strasse}
-	 * @return
+	 * @return strasse
 	 */
 	public String getStrasse()
 	{
@@ -115,7 +115,7 @@ public class Auftraggeber
 
 	/**
 	 * Setter für {@link #strasse strasse}
-	 * @param strasse
+	 * @param strasse strasse
 	 */
 	public void setStrasse(String strasse)
 	{
