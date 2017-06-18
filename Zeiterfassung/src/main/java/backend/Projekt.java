@@ -109,26 +109,11 @@ public class Projekt
 		this.bereich = bereich;
 	}
 
-	/**
-	 * Standardkonstruktor
-	 */
-	public Projekt()
+
+	public Projekt(String name, Auftraggeber auftraggeber, Bereich bereich)
 	{
-	}
-
-	/**
-	 * Erstellen eines Projekts
-	 */
-	void projektErstellen()
-	{
-
-	}
-
-	/**
-	 * Bearbeiten eines Projekts
-	 */
-	void projektBearbeiten()
-	{
-
+		this.setName(name);
+		this.setAuftraggeber(auftraggeber);
+		this.setBereich(bereich);
 	}
 }
