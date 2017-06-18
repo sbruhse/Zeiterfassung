@@ -125,6 +125,11 @@ public class Arbeitsblock
 		this.beschreibung = beschreibung;
 	}
 
+	public Arbeitsblock(Aufgaben aufgabe)
+	{
+		setAufgabe(aufgabe);
+	}
+
 	/**
 	 * Startet einen Arbeitsblock
 	 */
@@ -138,7 +143,7 @@ public class Arbeitsblock
 	 */
 	public void arbeitsblockStoppen()
 	{
-		
+		setEndzeit(new Date());
 	}
 
 }
