@@ -29,4 +29,8 @@ public class Identitaet
 		this.name = name;
 	}
 
+	public Identitaet(String name)
+	{
+		setName(name);
+	}
 }

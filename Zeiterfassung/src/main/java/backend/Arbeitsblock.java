@@ -130,7 +130,7 @@ public class Arbeitsblock
 	 */
 	public void arbeitsblockStarten()
 	{
-		
+		setStartzeit(new Date());
 	}
 
 	/**
