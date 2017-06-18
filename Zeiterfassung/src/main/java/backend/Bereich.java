@@ -30,26 +30,8 @@ public class Bereich
 		this.name = name;
 	}
 
-	/**
-	 * Standardkonstruktor
-	 */
-	public Bereich()
+	public Bereich(String name)
 	{
-	}
-
-	/**
-	 * Erstellen eines Bereichs
-	 */
-	void bereichErstellen()
-	{
-
-	}
-
-	/**
-	 * Bearbeiten eines Bereichs
-	 */
-	void bereichBearbeiten()
-	{
-
+		this.name = name;
 	}
 }
