@@ -125,15 +125,8 @@ public class Auftraggeber
 	/**
 	 * Standardkonstrukor
 	 */
-	public Auftraggeber()
+	public Auftraggeber(String vorname)
 	{
-	}
-
-	/**
-	 * Fügt einen Auftraggeber hinzu
-	 */
-	void auftraggeberHinzufuegen()
-	{
-
+		setVorname(vorname);
 	}
 }
