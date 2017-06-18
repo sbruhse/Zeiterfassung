@@ -1,5 +1,10 @@
 package backend;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.util.ArrayList;
+
 /**
  * @author sellmer
  * Identität eines Arbeitenden
@@ -32,5 +37,12 @@ public class Identitaet
 	public Identitaet(String name)
 	{
 		setName(name);
+	}
+
+	public static ArrayList<Identitaet> getObjectsFromJson(String json)
+	{
+		Gson gson = new Gson();
+		TypeToken<ArrayList<Identitaet>> token = new TypeToken<ArrayList<Identitaet>>(){};
+		return gson.fromJson(json, token.getType());
 	}
 }
