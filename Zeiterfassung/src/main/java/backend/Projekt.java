@@ -1,5 +1,8 @@
 package backend;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 import java.util.ArrayList;
 
 /**
@@ -115,5 +118,18 @@ public class Projekt
 		this.setName(name);
 		this.setAuftraggeber(auftraggeber);
 		this.setBereich(bereich);
+	}
+
+	public static ArrayList<Projekt> getObjectsFromJson(String json)
+	{
+		Gson gson = new Gson();
+		TypeToken<ArrayList<Projekt>> token = new TypeToken<ArrayList<Projekt>>(){};
+		return gson.fromJson(json, token.getType());
+	}
+
+	public String getJsonFromObjects(ArrayList<Projekt> projekte)
+	{
+		Gson gson = new Gson();
+		return gson.toJson(projekte);
 	}
 }
