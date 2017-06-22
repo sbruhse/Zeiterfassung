@@ -45,4 +45,10 @@ public class Identitaet
 		TypeToken<ArrayList<Identitaet>> token = new TypeToken<ArrayList<Identitaet>>(){};
 		return gson.fromJson(json, token.getType());
 	}
+
+	public String getJsonFromObjects(ArrayList<Identitaet> identitaeten)
+	{
+		Gson gson = new Gson();
+		return gson.toJson(identitaeten);
+	}
 }
