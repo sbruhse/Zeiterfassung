@@ -1,11 +1,13 @@
 package backend;
 
+import java.util.Date;
+
 /**
  * Verwaltung von Auftraggeber
  *
  * @auther sellmer
  */
-public class Auftraggeber
+public class Auftraggeber extends Datei<Auftraggeber>
 {
 	/**
 	 * Vorname des Auftraggebers

@@ -1,11 +1,16 @@
 package backend;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.util.ArrayList;
+
 /**
  * Verwaltung von Bereich
  *
  * @author sellmer
  */
-public class Bereich
+public class Bereich extends Datei<Bereich>
 {
 	/**
 	 * Name des Bereichs
@@ -33,5 +38,12 @@ public class Bereich
 	public Bereich(String name)
 	{
 		this.name = name;
+	}
+
+	public static ArrayList<Bereich> getObjectsFromJson(String json)
+	{
+		Gson gson = new Gson();
+		TypeToken<ArrayList<Bereich>> token = new TypeToken<ArrayList<Bereich>>(){};
+		return gson.fromJson(json, token.getType());
 	}
 }

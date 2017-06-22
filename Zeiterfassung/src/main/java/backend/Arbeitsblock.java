@@ -7,7 +7,7 @@ import java.util.Date;
  *
  * @author lasse
  */
-public class Arbeitsblock 
+public class Arbeitsblock extends Datei<Arbeitsblock>
 {
 
 	/**

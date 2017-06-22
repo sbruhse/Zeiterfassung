@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * Klasse zur Verwaltung von Projekt
  * @author sellmer
  */
-public class Projekt
+public class Projekt extends Datei<Projekt>
 {
 	/**
 	 * Name des Projekts
@@ -120,16 +120,5 @@ public class Projekt
 		this.setBereich(bereich);
 	}
 
-	public static ArrayList<Projekt> getObjectsFromJson(String json)
-	{
-		Gson gson = new Gson();
-		TypeToken<ArrayList<Projekt>> token = new TypeToken<ArrayList<Projekt>>(){};
-		return gson.fromJson(json, token.getType());
-	}
 
-	public String getJsonFromObjects(ArrayList<Projekt> projekte)
-	{
-		Gson gson = new Gson();
-		return gson.toJson(projekte);
-	}
 }

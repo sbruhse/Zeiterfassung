@@ -13,7 +13,7 @@ import java.util.Date;
 /**
  * Created by steven on 08.06.17.
  */
-public class Aufgaben {
+public class Aufgaben extends Datei<Aufgaben>{
 
     //Deklaration
     private int taskId;

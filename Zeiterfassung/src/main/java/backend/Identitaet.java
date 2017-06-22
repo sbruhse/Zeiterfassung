@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * @author sellmer
  * Identität eines Arbeitenden
  */
-public class Identitaet
+public class Identitaet extends Datei<Identitaet>
 {
 	/**
 	 * Name der Identität
@@ -39,16 +39,5 @@ public class Identitaet
 		setName(name);
 	}
 
-	public static ArrayList<Identitaet> getObjectsFromJson(String json)
-	{
-		Gson gson = new Gson();
-		TypeToken<ArrayList<Identitaet>> token = new TypeToken<ArrayList<Identitaet>>(){};
-		return gson.fromJson(json, token.getType());
-	}
 
-	public String getJsonFromObjects(ArrayList<Identitaet> identitaeten)
-	{
-		Gson gson = new Gson();
-		return gson.toJson(identitaeten);
-	}
 }
