@@ -119,6 +119,4 @@ public class Projekt extends Datei<Projekt>
 		this.setAuftraggeber(auftraggeber);
 		this.setBereich(bereich);
 	}
-
-
 }

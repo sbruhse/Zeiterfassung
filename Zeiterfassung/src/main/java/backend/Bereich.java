@@ -40,10 +40,4 @@ public class Bereich extends Datei<Bereich>
 		this.name = name;
 	}
 
-	public static ArrayList<Bereich> getObjectsFromJson(String json)
-	{
-		Gson gson = new Gson();
-		TypeToken<ArrayList<Bereich>> token = new TypeToken<ArrayList<Bereich>>(){};
-		return gson.fromJson(json, token.getType());
-	}
 }

@@ -3,6 +3,7 @@ package backend;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import java.io.*;
 import java.util.ArrayList;
 
 /**
@@ -38,9 +39,46 @@ public abstract class Datei<T>
     }
 
     /**
+     * Schreibt einen String in eine Datei im Applikationsordner im Benutzerverzeichnis.
+     * @param relativePath
+     * @param content
+     * @param <T>
+     * @throws IOException
+     */
+    public static <T> void write(String relativePath, String content) throws IOException
+    {
+        String userHome = System.getProperty("user.home");
+
+        FileWriter fileWriter = new FileWriter(userHome + "/Zeiterfassung/" + relativePath);
+        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+
+        bufferedWriter.write(content);
+
+        bufferedWriter.close();
+    }
+
+    public  static <T> String read(String relativePath) throws IOException
+    {
+        String userHome = System.getProperty("user.home");
+        FileReader fileReader = new FileReader(userHome + "/Zeiterfassung/" + relativePath);
+        BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+        String content = "";
+        String line = "";
+        while ((line = bufferedReader.readLine()) != null)
+        {
+            content = content.concat(line);
+        }
+
+        bufferedReader.close();
+
+        return content;
+    }
+
+    /**
      * Pfad zur Datei
      */
-    private String path;
+    private String path = null;
 
     /**
      * Getter für {@link #path path}
@@ -59,4 +97,5 @@ public abstract class Datei<T>
     {
         this.path = path;
     }
+
 }
