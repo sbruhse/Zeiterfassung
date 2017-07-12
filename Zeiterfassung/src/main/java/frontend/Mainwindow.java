@@ -11,21 +11,28 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 /**
  * Created by sellmer on 08.06.17.
  */
-public class Mainwindow extends Application{
+public class Mainwindow extends JFrame implements ActionListener {
 
-    Button button;
+    JButton jButton;
+    JLabel jLabel;
+    JPanel jPanel;
+    JFrame jFrame;
 
-    public static void main(String[] args)
-    {
-        launch(args);
+    public static void main(String[] args) {
+        Mainwindow mw = new Mainwindow();
+        mw.setVisible(true);
     }
 
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-
+    public Mainwindow() {
         /*
         Simons Tests START
          */
@@ -34,7 +41,7 @@ public class Mainwindow extends Application{
         System.out.println(Identitaet.getObjectsFromJson("[{name:\"test1\"},{name:\"test2\"}]"));
 
         // Erstellt 1 Projekt Objekt, macht es zu einem JSON String und anschließend wieder zu einem Projekt Objekt
-        Projekt projekt = new Projekt("Test", new Auftraggeber("hans"),new Bereich("FH"));
+        Projekt projekt = new Projekt("Test", new Auftraggeber("hans"), new Bereich("FH"));
         Gson gson = new Gson();
         String jsonString = gson.toJson(projekt);
         System.out.println(jsonString);
@@ -44,7 +51,26 @@ public class Mainwindow extends Application{
         Simons Tests ENDE
          */
 
-        primaryStage.setTitle("Zeiterfassung");
+    /*
+    Swing test
+     */
+        this.setTitle("Zeiterfassung");
+        this.setSize(600, 600);
+
+        jPanel = new JPanel();
+        jPanel.setBackground(Color.blue);
+
+        jLabel = new JLabel();
+        jPanel.add(jLabel);
+
+        jButton = new JButton("Klick mich");
+        jPanel.add(jButton);
+        jButton.addActionListener(this);
+
+        this.add(jPanel);
+
+
+        /*primaryStage.setTitle("Zeiterfassung");
         button = new Button();
         button.setText("Click me");
 
@@ -53,6 +79,16 @@ public class Mainwindow extends Application{
 
         Scene scene = new Scene(layout, 300, 250);
         primaryStage.setScene(scene);
-        primaryStage.show();
+        primaryStage.show();*/
+    }
+
+    public void actionPerformed(ActionEvent ae) {
+
+        if (ae.getSource() == this.jButton) {
+            jLabel.setText(("Button wurde betätigt"));
+
+
+        }
     }
 }
+
