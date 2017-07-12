@@ -2,6 +2,7 @@ package backend;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+//import com.oracle.javafx.jmx.json.JSONException;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -24,6 +25,7 @@ public abstract class Datei<T>
         Gson gson = new Gson();
         TypeToken<ArrayList<T>> token = new TypeToken<ArrayList<T>>(){};
         return gson.fromJson(json, token.getType());
+
     }
 
     /**
@@ -74,6 +76,8 @@ public abstract class Datei<T>
 
         return content;
     }
+
+
 
     /**
      * Pfad zur Datei

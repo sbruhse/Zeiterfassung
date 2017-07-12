@@ -5,17 +5,16 @@ import backend.Bereich;
 import backend.Identitaet;
 import backend.Projekt;
 import com.google.gson.Gson;
-import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
+import sun.rmi.runtime.Log;
 
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Logger;
 
 /**
  * Created by sellmer on 08.06.17.
@@ -25,7 +24,7 @@ public class Mainwindow extends JFrame implements ActionListener {
     JButton jButton;
     JLabel jLabel;
     JPanel jPanel;
-    JFrame jFrame;
+    JComboBox jCProjekte;
 
     public static void main(String[] args) {
         Mainwindow mw = new Mainwindow();
@@ -41,9 +40,9 @@ public class Mainwindow extends JFrame implements ActionListener {
         System.out.println(Identitaet.getObjectsFromJson("[{name:\"test1\"},{name:\"test2\"}]"));
 
         // Erstellt 1 Projekt Objekt, macht es zu einem JSON String und anschließend wieder zu einem Projekt Objekt
-        Projekt projekt = new Projekt("Test", new Auftraggeber("hans"), new Bereich("FH"));
+        Projekt projekt1 = new Projekt("Test", new Auftraggeber("hans"), new Bereich("FH"));
         Gson gson = new Gson();
-        String jsonString = gson.toJson(projekt);
+        String jsonString = gson.toJson(projekt1);
         System.out.println(jsonString);
 
 
@@ -66,6 +65,57 @@ public class Mainwindow extends JFrame implements ActionListener {
         jButton = new JButton("Klick mich");
         jPanel.add(jButton);
         jButton.addActionListener(this);
+
+
+
+       /* ArrayList<Projekt> projektliste = new ArrayList<>();
+        projektliste.add(new Projekt("test", new Auftraggeber("test"), new Bereich("test")));
+        projektliste.add(new Projekt("test2", new Auftraggeber("test"), new Bereich("test")));
+
+
+        jCProjekte = new JComboBox();
+        jCProjekte.addItem(projektliste.get(0).getName());
+        jCProjekte.addItem(projektliste.get(1).getName()); */
+
+
+        //steven test
+        Projekt projekt = new Projekt();
+        projekt.setName("TestProjekt");
+
+        Projekt projekt2 = new Projekt();
+        projekt2.setName("Test2");
+
+        Gson projektgson = new Gson();
+        String projektjson = projektgson.toJson(projekt);
+        String projektjson2 = projektgson.toJson(projekt2);
+        try {
+            Projekt.write("Projekt.json", projektjson);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            Projekt.write("Projekt.json", projektjson2);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+
+        try {
+           String projektestring =  Projekt.read("Projekt.json");
+            System.out.println(projektestring);
+           //Projekt.getObjectsFromJson(projektestring);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+
+
+        jCProjekte = new JComboBox();
+        jPanel.add(jCProjekte);
+
+
 
         this.add(jPanel);
 

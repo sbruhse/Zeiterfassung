@@ -112,6 +112,10 @@ public class Projekt extends Datei<Projekt>
 		this.bereich = bereich;
 	}
 
+	public  Projekt() {
+
+	}
+
 
 	public Projekt(String name, Auftraggeber auftraggeber, Bereich bereich)
 	{
