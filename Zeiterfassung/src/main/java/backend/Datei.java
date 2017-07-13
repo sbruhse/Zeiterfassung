@@ -50,19 +50,43 @@ public abstract class Datei<T>
     public static <T> void write(String relativePath, String content) throws IOException
     {
         String userHome = System.getProperty("user.home");
+        String directory = userHome + "/Zeiterfassung/";
+        File folder = new File(directory);
 
-        FileWriter fileWriter = new FileWriter(userHome + "/Zeiterfassung/" + relativePath);
-        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+        if(folder.exists())
+        {
+            FileWriter fileWriter = new FileWriter(directory + relativePath);
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
-        bufferedWriter.write(content);
+            bufferedWriter.write(content);
 
-        bufferedWriter.close();
+            bufferedWriter.close();
+        }
+        else
+        {
+            throw new FileNotFoundException();
+        }
     }
 
+    /**
+     * Liest eine Datei ein
+     * @param relativePath
+     * @param <T>
+     * @return
+     * @throws IOException
+     */
     public  static <T> String read(String relativePath) throws IOException
     {
         String userHome = System.getProperty("user.home");
-        FileReader fileReader = new FileReader(userHome + "/Zeiterfassung/" + relativePath);
+        String directory = userHome + "/Zeiterfassung/";
+        File folder = new File(directory);
+
+        if(!folder.exists())
+        {
+            throw new FileNotFoundException();
+        }
+
+        FileReader fileReader = new FileReader(directory + relativePath);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
 
         String content = "";
