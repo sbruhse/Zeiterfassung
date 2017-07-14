@@ -161,6 +161,21 @@ public class Mainwindow extends JFrame implements ActionListener {
             }
         });
 
+        /*
+        Button zum Anlegen eines Auftraggebers
+         */
+        JButton jBAuftraggeberAnlegen = new JButton("Auftraggeber hinzufügen");
+        jPanel.add(jBAuftraggeberAnlegen);
+        jBAuftraggeberAnlegen.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame addAuftraggeberWindow = new JFrame("AddAuftraggeberWindow");
+                addAuftraggeberWindow.setContentPane(new AddAuftraggeberWindow().mainPanel);
+                addAuftraggeberWindow.pack();
+                addAuftraggeberWindow.setVisible(true);
+            }
+        });
+
         this.add(jPanel);
 
 
