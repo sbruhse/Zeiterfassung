@@ -178,6 +178,21 @@ public class Mainwindow extends JFrame implements ActionListener {
 
         this.add(jPanel);
 
+        /*
+        Button zum Anlegen einer Identität
+         */
+        JButton jBIdentitaetAnlegen = new JButton("Identität anlegen");
+        jPanel.add(jBIdentitaetAnlegen);
+        jBIdentitaetAnlegen.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame addIdentitaetWindow = new JFrame("AddIdentitaetWindow");
+                addIdentitaetWindow.setContentPane(new AddIdentitaetWindow().mainPanelIdentitaet);
+                addIdentitaetWindow.pack();
+                addIdentitaetWindow.setVisible(true);
+            }
+        });
+
 
         /*primaryStage.setTitle("Zeiterfassung");
         button = new Button();
