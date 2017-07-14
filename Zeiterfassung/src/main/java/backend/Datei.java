@@ -42,12 +42,11 @@ public abstract class Datei<T>
 
     /**
      * Schreibt einen String in eine Datei im Applikationsordner im Benutzerverzeichnis.
-     * @param relativePath
      * @param content
      * @param <T>
      * @throws IOException
      */
-    public static <T> void write(String relativePath, String content) throws IOException
+    public static <T> void write(String content) throws IOException
     {
         String userHome = System.getProperty("user.home");
         String directory = userHome + "/Zeiterfassung/";
@@ -55,7 +54,7 @@ public abstract class Datei<T>
 
         if(folder.exists())
         {
-            FileWriter fileWriter = new FileWriter(directory + relativePath);
+            FileWriter fileWriter = new FileWriter(directory + getPath());
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
             bufferedWriter.write(content);
@@ -70,12 +69,11 @@ public abstract class Datei<T>
 
     /**
      * Liest eine Datei ein
-     * @param relativePath
      * @param <T>
      * @return
      * @throws IOException
      */
-    public  static <T> String read(String relativePath) throws IOException
+    public  static <T> String read() throws IOException
     {
         String userHome = System.getProperty("user.home");
         String directory = userHome + "/Zeiterfassung/";
@@ -86,7 +84,7 @@ public abstract class Datei<T>
             throw new FileNotFoundException();
         }
 
-        FileReader fileReader = new FileReader(directory + relativePath);
+        FileReader fileReader = new FileReader(directory + getPath());
         BufferedReader bufferedReader = new BufferedReader(fileReader);
 
         String content = "";
@@ -106,24 +104,15 @@ public abstract class Datei<T>
     /**
      * Pfad zur Datei
      */
-    private String path = null;
+    private static String path = null;
 
     /**
      * Getter für {@link #path path}
      * @return
      */
-    public String getPath()
+    public static String getPath()
     {
         return path;
-    }
-
-    /**
-     * Setter für {@link #path path}
-     * @param path
-     */
-    public void setPath(String path)
-    {
-        this.path = path;
     }
 
 }
