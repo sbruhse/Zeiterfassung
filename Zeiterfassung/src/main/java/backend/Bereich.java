@@ -40,4 +40,12 @@ public class Bereich extends Datei<Bereich>
 		this.name = name;
 	}
 
+
+	public final static String path = "/bereiche.json";
+
+	public static String getPath()
+	{
+		return path;
+	}
+
 }

@@ -131,4 +131,12 @@ public class Auftraggeber extends Datei<Auftraggeber>
 	{
 		setVorname(vorname);
 	}
+
+
+	public final static String path = "/auftraggeber.json";
+
+	public static String getPath()
+	{
+		return path;
+	}
 }

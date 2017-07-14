@@ -40,4 +40,10 @@ public class Identitaet extends Datei<Identitaet>
 	}
 
 
+	public final static String path = "/identitaeten.json";
+
+	public static String getPath()
+	{
+		return path;
+	}
 }

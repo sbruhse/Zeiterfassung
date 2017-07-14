@@ -146,4 +146,12 @@ public class Arbeitsblock extends Datei<Arbeitsblock>
 		setEndzeit(new Date());
 	}
 
+
+	public final static String path = "/arbeitsblock.json";
+
+	public static String getPath()
+	{
+		return path;
+	}
+
 }

@@ -123,4 +123,11 @@ public class Projekt extends Datei<Projekt>
 		this.setAuftraggeber(auftraggeber);
 		this.setBereich(bereich);
 	}
+
+	public final static String path = "/projekte.json";
+
+	public static String getPath()
+	{
+		return path;
+	}
 }
