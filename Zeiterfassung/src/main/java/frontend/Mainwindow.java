@@ -57,7 +57,7 @@ public class Mainwindow extends JFrame implements ActionListener {
         this.setSize(600, 600);
 
         jPanel = new JPanel();
-        jPanel.setBackground(Color.blue);
+//        jPanel.setBackground(Color.blue);
 
         jLabel = new JLabel();
         jPanel.add(jLabel);
@@ -114,6 +114,22 @@ public class Mainwindow extends JFrame implements ActionListener {
 
         jCProjekte = new JComboBox();
         jPanel.add(jCProjekte);
+
+        /*
+        Button zum Anlegen eines Projektes
+         */
+        JButton jBProjektAnlegen = new JButton("+");
+        jPanel.add(jBProjektAnlegen);
+        jBProjektAnlegen.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                AddProjektWindow addProjektWindow = new AddProjektWindow();
+                addProjektWindow.setVisible(true);
+            }
+        });
+
 
 
 
