@@ -7,5 +7,14 @@ import javax.swing.*;
  */
 public class AddProjektWindow extends JFrame
 {
+    private JTextField textFieldName;
+    private JComboBox comboBoxUeberProj;
+    private JComboBox comboBoxBereich;
+    private JComboBox comboBoxAuftraggeber;
+    private JButton hinzufuegenButton;
 
+    public AddProjektWindow()
+    {
+
+    }
 }
