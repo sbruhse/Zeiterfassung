@@ -13,7 +13,7 @@ import java.util.ArrayList;
 /**
  * Created by sbruhse on 14.07.2017.
  */
-public class AddProjektWindow
+public class AddProjektWindow extends JFrame
 {
     private JTextField textFieldName;
     private JComboBox comboBoxUeberProj;
@@ -44,7 +44,7 @@ public class AddProjektWindow
                 {
                     e1.printStackTrace();
                 }
-
+                //setVisible(false);
             }
         });
     }

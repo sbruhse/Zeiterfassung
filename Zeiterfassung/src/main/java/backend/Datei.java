@@ -67,7 +67,10 @@ public abstract class Datei<T>
         }
         else
         {
-            throw new FileNotFoundException();
+            if(!folder.getParentFile().exists())
+                folder.getParentFile().mkdir();
+
+            folder.createNewFile();
         }
     }
 
@@ -86,7 +89,10 @@ public abstract class Datei<T>
 
         if(!folder.exists())
         {
-            throw new FileNotFoundException();
+            if(!folder.getParentFile().exists())
+                folder.getParentFile().mkdir();
+
+            folder.createNewFile();
         }
 
         FileReader fileReader = new FileReader(folder);
