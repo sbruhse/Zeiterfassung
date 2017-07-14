@@ -125,7 +125,10 @@ public class Mainwindow extends JFrame implements ActionListener {
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                AddProjektWindow addProjektWindow = new AddProjektWindow();
+                System.out.println("Bin hier");
+                JFrame addProjektWindow = new JFrame("AddProjektWindow");
+                addProjektWindow.setContentPane(new AddProjektWindow().mainPanel);
+                addProjektWindow.pack();
                 addProjektWindow.setVisible(true);
             }
         });
