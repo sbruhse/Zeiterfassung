@@ -12,6 +12,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.ArrayList;
 
 
 /**
@@ -48,9 +49,20 @@ public class Mainwindow extends JFrame implements ActionListener {
 
 
 
-        jCProjekte = new JComboBox();
-        jPanel.add(jCProjekte);
 
+
+        ArrayList<Projekt> projekte = new ArrayList<>();
+        try
+        {
+            projekte = Projekt.getObjectsFromJson(Projekt.read(Projekt.getPath()));
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+
+        jCProjekte = new JComboBox(projekte.toArray());
+        jPanel.add(jCProjekte);
         /*
         Button zum Anlegen eines Projektes
          */

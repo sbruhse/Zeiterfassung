@@ -130,4 +130,10 @@ public class Projekt extends Datei<Projekt>
 	{
 		return path;
 	}
+
+	@Override
+	public String toString()
+	{
+		return getName();
+	}
 }
