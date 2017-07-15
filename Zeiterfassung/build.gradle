@@ -1,4 +1,5 @@
 apply plugin: 'java'
+apply plugin: 'idea'
 
 sourceCompatibility = '1.8'
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
@@ -21,6 +22,7 @@ mainClassName = 'frontend.Mainwindow'
 
 repositories {
     mavenCentral()
+    flatDir dirs: "${rootDir}/lib"
     // You may define additional repositories, or even remove "mavenCentral()".
     // Read more about repositories here:
     //   http://www.gradle.org/docs/current/userguide/dependency_management.html#sec:repositories
@@ -34,4 +36,5 @@ dependencies {
     testCompile 'org.mockito:mockito-core:2.7.22'
     compile 'com.google.code.gson:gson:2.2.4'
     compile 'com.intellij:forms_rt:7.0.3'
+    compile name: 'forms_rt', version: '13.1.1'
 }
