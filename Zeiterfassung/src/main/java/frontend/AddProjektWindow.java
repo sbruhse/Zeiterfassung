@@ -1,6 +1,8 @@
 package frontend;
 
 import backend.Projekt;
+import backend.Bereich;
+import backend.Auftraggeber;
 import com.google.gson.Gson;
 
 import javax.swing.*;
@@ -48,6 +50,39 @@ public class AddProjektWindow extends JFrame
                 //setVisible(false);
             }
         });
+        
+        
+        //Projekte, Bereiche und Auftraggeber-Boxen füllen
+        ArrayList<Projekt> projekte = new ArrayList<>();
+        ArrayList<Bereich> bereiche = new ArrayList<>();
+        ArrayList<Auftraggeber> auftraggeber = new ArrayList<>();
+        try
+        {
+            projekte = Projekt.getObjectsFromJson(Projekt.read(Projekt.getPath()),Projekt[].class);
+            bereiche = Bereich.getObjectsFromJson(Bereich.read(Bereich.getPath()),Bereich[].class);
+            auftraggeber = Auftraggeber.getObjectsFromJson(Auftraggeber.read(Auftraggeber.getPath()), Auftraggeber[].class);
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        
+        
+        comboBoxUeberProj = new JComboBox(projekte.toArray());
+        comboBoxBereich = new JComboBox(bereiche.toArray());
+        comboBoxAuftraggeber = new JComboBox(auftraggeber.toArray());
+        
+        
+        /* bringt auch nichts
+        comboBoxUeberProj.revalidate();
+        comboBoxUeberProj.repaint();
+        
+        mainPanel.revalidate();
+        mainPanel.repaint();
+		*/
+
+        
+        
     }
 
 
