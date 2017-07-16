@@ -34,6 +34,8 @@ public class Identitaet extends Datei<Identitaet>
 		this.name = name;
 	}
 
+	public Identitaet() {};
+
 	public Identitaet(String name)
 	{
 		setName(name);
