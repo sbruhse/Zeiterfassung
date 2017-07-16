@@ -47,5 +47,11 @@ public class Bereich extends Datei<Bereich>
 	{
 		return path;
 	}
+	
+	@Override
+	public String toString()
+	{
+		return getName();
+	}
 
 }

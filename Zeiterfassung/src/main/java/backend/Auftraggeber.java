@@ -139,4 +139,10 @@ public class Auftraggeber extends Datei<Auftraggeber>
 	{
 		return path;
 	}
+	
+	@Override
+	public String toString()
+	{
+		return getNachname();
+	}
 }

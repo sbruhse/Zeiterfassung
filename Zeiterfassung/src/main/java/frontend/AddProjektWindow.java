@@ -34,6 +34,11 @@ public class AddProjektWindow extends JFrame
             {
                 Projekt newProjekt = new Projekt();
                 newProjekt.setName(textFieldName.getText());
+                newProjekt.setBereich((Bereich) comboBoxBereich.getSelectedItem());
+                newProjekt.setAuftraggeber((Auftraggeber) comboBoxAuftraggeber.getSelectedItem());
+                ArrayList<Projekt> speicherprojekte = new ArrayList<>();
+                if(comboBoxUeberProj.getSelectedItem()!=null) speicherprojekte.add((Projekt)comboBoxUeberProj.getSelectedItem());
+                newProjekt.setUnterprojekt(speicherprojekte);
 
                 try
                 {
@@ -52,7 +57,8 @@ public class AddProjektWindow extends JFrame
         });
         
         
-        //Projekte, Bereiche und Auftraggeber-Boxen füllen
+        //#######################Projekte, Bereiche und Auftraggeber-Boxen füllen
+        
         ArrayList<Projekt> projekte = new ArrayList<>();
         ArrayList<Bereich> bereiche = new ArrayList<>();
         ArrayList<Auftraggeber> auftraggeber = new ArrayList<>();
@@ -68,20 +74,9 @@ public class AddProjektWindow extends JFrame
         }
         
         
-        comboBoxUeberProj = new JComboBox(projekte.toArray());
-        comboBoxBereich = new JComboBox(bereiche.toArray());
-        comboBoxAuftraggeber = new JComboBox(auftraggeber.toArray());
-        
-        
-        /* bringt auch nichts
-        comboBoxUeberProj.revalidate();
-        comboBoxUeberProj.repaint();
-        
-        mainPanel.revalidate();
-        mainPanel.repaint();
-		*/
-
-        
+        for(Projekt p : projekte) comboBoxUeberProj.addItem(p);
+        for(Bereich p : bereiche) comboBoxBereich.addItem(p);
+        for(Auftraggeber p : auftraggeber) comboBoxAuftraggeber.addItem(p);
         
     }
 
