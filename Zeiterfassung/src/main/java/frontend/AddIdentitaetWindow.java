@@ -27,7 +27,7 @@ public class AddIdentitaetWindow {
                 newIdentitaet.setName(txtFieldIdent.getText());
 
                 try {
-                    ArrayList<Identitaet> identitaeten = Identitaet.getObjectsFromJson(Identitaet.read(Identitaet.getPath()));
+                    ArrayList<Identitaet> identitaeten = Identitaet.getObjectsFromJson(Identitaet.read(Identitaet.getPath()),Identitaet[].class);
                     identitaeten.add(newIdentitaet);
                     Identitaet.write(Identitaet.getPath(), Identitaet.getJsonFromObjects(identitaeten));
                 }

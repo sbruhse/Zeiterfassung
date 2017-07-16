@@ -54,7 +54,7 @@ public class Mainwindow extends JFrame implements ActionListener {
         ArrayList<Projekt> projekte = new ArrayList<>();
         try
         {
-            projekte = Projekt.getObjectsFromJson(Projekt.read(Projekt.getPath()));
+            projekte = Projekt.getObjectsFromJson(Projekt.read(Projekt.getPath()),Projekt[].class);
         }
         catch (IOException e)
         {
@@ -63,6 +63,7 @@ public class Mainwindow extends JFrame implements ActionListener {
 
         jCProjekte = new JComboBox(projekte.toArray());
         jPanel.add(jCProjekte);
+
         /*
         Button zum Anlegen eines Projektes
          */

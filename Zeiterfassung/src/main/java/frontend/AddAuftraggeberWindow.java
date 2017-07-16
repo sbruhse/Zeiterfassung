@@ -44,7 +44,7 @@ public class AddAuftraggeberWindow {
 
                 try
                 {
-                    ArrayList<Auftraggeber> auftraggeber = Auftraggeber.getObjectsFromJson(Auftraggeber.read(Auftraggeber.getPath()));
+                    ArrayList<Auftraggeber> auftraggeber = Auftraggeber.getObjectsFromJson(Auftraggeber.read(Auftraggeber.getPath()),Auftraggeber[].class);
                     auftraggeber.add(newAuftraggeber);
                     Auftraggeber.write(Auftraggeber.getPath(),Auftraggeber.getJsonFromObjects(auftraggeber));
                 }

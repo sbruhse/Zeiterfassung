@@ -34,7 +34,7 @@ public class AddBereichWindow {
 
                 try
                 {
-                    ArrayList<Bereich> bereiche = Bereich.getObjectsFromJson(Bereich.read(Bereich.getPath()));
+                    ArrayList<Bereich> bereiche = Bereich.getObjectsFromJson(Bereich.read(Bereich.getPath()), Bereich[].class);
                     bereiche.add(newBereich);
                     Bereich.write(Bereich.getPath(),Bereich.getJsonFromObjects(bereiche));
                 }

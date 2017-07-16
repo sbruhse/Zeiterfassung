@@ -6,6 +6,7 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Klasse zum Erstellen und Bearbeiten von Dateien und dem Verarbeiten von JSON Strings
@@ -20,11 +21,10 @@ public abstract class Datei<T>
      * @param <T> Objekttyp
      * @return Liste von Objekten
      */
-    public static <T> ArrayList<T> getObjectsFromJson(String json)
+    public static <T> ArrayList<T> getObjectsFromJson(String json, Class<T[]> clazz)
     {
         Gson gson = new Gson();
-        TypeToken<ArrayList<T>> token = new TypeToken<ArrayList<T>>(){};
-        ArrayList<T> list = gson.fromJson(json, token.getType());
+        ArrayList<T> list =  new ArrayList<>(Arrays.asList(gson.fromJson(json, clazz)));
         if (list == null)
             list = new ArrayList<>();
         return list;
