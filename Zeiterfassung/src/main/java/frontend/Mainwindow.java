@@ -144,6 +144,22 @@ public class Mainwindow extends JFrame implements ActionListener {
             }
         });
 
+        /*
+        New Main Window
+         */
+        JButton jBNewMainWindow = new JButton("New Main Window");
+        jPanel.add(jBNewMainWindow);
+        jBNewMainWindow.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame newMainWindow = new JFrame("NewMainWindow");
+                newMainWindow.setContentPane(new NewMainWindow().mainPanel);
+                newMainWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                newMainWindow.pack();
+                newMainWindow.setVisible(true);
+            }
+        });
+
     }
 
     public void actionPerformed(ActionEvent ae) {
