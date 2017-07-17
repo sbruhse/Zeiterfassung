@@ -31,7 +31,7 @@ public class AddAufgabeWindow {
             public void actionPerformed(ActionEvent e)
             {
                 Aufgaben newAufgabe = new Aufgaben();
-                //newAufgabe.setTaskDeadline((java.util.Date)textField2.getText());
+                newAufgabe.setTaskDeadline(textField2.getText());
                 newAufgabe.setTaskDescription(textArea1.getText());
                 newAufgabe.setTaskName(textField1.getText());
                 

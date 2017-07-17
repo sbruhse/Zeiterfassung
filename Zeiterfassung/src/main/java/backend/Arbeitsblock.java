@@ -1,5 +1,7 @@
 package backend;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -10,6 +12,7 @@ import java.util.Date;
 public class Arbeitsblock extends Datei<Arbeitsblock>
 {
 
+	public final static String path = "/arbeitsblock.json";
 	/**
 	 * Startzeit des Arbeitsblocks
 	 */
@@ -145,9 +148,36 @@ public class Arbeitsblock extends Datei<Arbeitsblock>
 	{
 		setEndzeit(new Date());
 	}
+	
+	/**
+	 * Gibt Arbeitsbloecke zurück, die zu einer bestimmten Aufgabe gehören
+	 * @param a Aufgabe deren Bloecke gefunden werden sollen
+	 * @return
+	 */
+	public static ArrayList<Arbeitsblock> getAufgabenbloecke(Aufgaben a)
+	{
+		ArrayList<Arbeitsblock> alleBloecke = new ArrayList<>(), sortierteBloecke = new ArrayList<>();
+		
+		try 
+		{
+			alleBloecke = getObjectsFromJson(read(getPath()), Arbeitsblock[].class);
+		} 
+		catch (IOException e) 
+		{
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+		
+		for(Arbeitsblock ab : alleBloecke)
+		{
+			if(a.getTaskName().equals(ab.getAufgabe().getTaskName()))
+				sortierteBloecke.add(ab);
+		}
+		
+		return sortierteBloecke;
+	}
 
 
-	public final static String path = "/arbeitsblock.json";
 
 	public static String getPath()
 	{

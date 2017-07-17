@@ -8,7 +8,10 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.Time;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 /**
  * Created by steven on 08.06.17.
@@ -54,6 +57,16 @@ public class Aufgaben extends Datei<Aufgaben>{
 
     public void setTaskDeadline(Date taskDeadline) {
         this.taskDeadline = taskDeadline;
+    }
+    
+    public void setTaskDeadline(String taskDeadlineString)
+    {
+    	try {
+			this.setTaskDeadline(new SimpleDateFormat("dd.MM.yyyy", Locale.GERMAN).parse(taskDeadlineString));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+
     }
 
     public final static String path = "/aufgaben.json";
