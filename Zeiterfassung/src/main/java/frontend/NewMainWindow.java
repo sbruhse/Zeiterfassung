@@ -1,6 +1,7 @@
 package frontend;
 
 import backend.Arbeitsblock;
+import backend.Aufgaben;
 import backend.Bereich;
 import backend.Projekt;
 
@@ -35,35 +36,56 @@ public class NewMainWindow extends JFrame {
         aktuellerBlock = new Arbeitsblock();
 
         loadProjektTree();
-        startButton.addActionListener(new ActionListener() {
+        //Combobox füllen
+    	ArrayList<Aufgaben> aufgabenliste = new ArrayList<>();
+    	try {
+			aufgabenliste = Aufgaben.getObjectsFromJson(Aufgaben.read(Aufgaben.path), Aufgaben[].class);
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+    	
+    	cBAufgabe = new JComboBox<>();
+    	for(Aufgaben a : aufgabenliste) cBAufgabe.addItem(a);
+
+    	
+    	//Eventhandler
+        loadProjektTree();
+        startButton.addActionListener(new ActionListener()
+        {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                aktuellerBlock.setStartzeit(new Date());
-                aktuellerBlock.setBeschreibung(textArea1.getText());
+            public void actionPerformed(ActionEvent e)
+            {
+            	aktuellerBlock.arbeitsblockStarten();
+            	datenSetzen();
             }
         });
-        stopButton.addActionListener(new ActionListener() {
+        stopButton.addActionListener(new ActionListener()
+        {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                aktuellerBlock.setEndzeit(new Date());
-                aktuellerBlock.setBeschreibung(textArea1.getText());
+            public void actionPerformed(ActionEvent e)
+            {
+            	aktuellerBlock.arbeitsblockStoppen();
+            	datenSetzen();
 
             }
         });
-//        cBAufgabe.addActionListener(new ActionListener()
-//        {
-//            @Override
-//            public void actionPerformed(ActionEvent e)
-//            {
-//
-//            }
-//        });
+        cBAufgabe.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+
+            }
+        });
 
 
     }
 
-    public void datenSetzen() {
 
+    public void datenSetzen()
+    {
+    	aktuellerBlock.setBeschreibung(textArea1.getText());
+    	aktuellerBlock.setAufgabe((Aufgaben) cBAufgabe.getSelectedItem());    		
     }
 
     public void loadProjektTree() {
