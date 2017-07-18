@@ -48,4 +48,11 @@ public class Identitaet extends Datei<Identitaet>
 	{
 		return path;
 	}
+
+	@Override
+	public String toString()
+	{
+		return getName();
+	}
+
 }

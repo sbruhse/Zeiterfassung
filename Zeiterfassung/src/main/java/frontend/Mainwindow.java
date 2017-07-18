@@ -47,10 +47,6 @@ public class Mainwindow extends JFrame implements ActionListener {
         jPanel.add(jButton);
         jButton.addActionListener(this);
 
-
-
-
-
         ArrayList<Projekt> projekte = new ArrayList<>();
         try
         {
@@ -144,20 +140,6 @@ public class Mainwindow extends JFrame implements ActionListener {
             }
         });
 
-        /*
-        Button zum Editieren eines Projektes
-         */
-        JButton jBEditProjekt = new JButton("Projekte bearbeiten");
-        jPanel.add(jBEditProjekt);
-        jBEditProjekt.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JFrame editProjectWindow = new JFrame("EditProjectWindow");
-                editProjectWindow.setContentPane(new EditProjectWindow().EditPrPanel);
-                editProjectWindow.pack();
-                editProjectWindow.setVisible(true);
-            }
-        });
 
         /*
         Button zum Editieren eines Bereiches
@@ -171,6 +153,21 @@ public class Mainwindow extends JFrame implements ActionListener {
                 editBereichWindow.setContentPane(new EditBereichWindow().editBereichePanel);
                 editBereichWindow.pack();
                 editBereichWindow.setVisible(true);
+            }
+        });
+
+         /*
+        Button zum Editieren einer Identität
+         */
+        JButton jBEditIdent = new JButton("Identitäten bearbeiten");
+        jPanel.add(jBEditIdent);
+        jBEditIdent.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame editIdentWindow = new JFrame("EditIdentitaetWindow");
+                editIdentWindow.setContentPane(new EditIdentitaetWindow().editIdentPanel);
+                editIdentWindow.pack();
+                editIdentWindow.setVisible(true);
             }
         });
 
