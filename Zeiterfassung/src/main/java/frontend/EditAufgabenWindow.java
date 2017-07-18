@@ -2,6 +2,7 @@ package frontend;
 
 
 import backend.Aufgaben;
+import backend.Projekt;
 
 import javax.swing.*;
 import java.awt.*;
@@ -32,9 +33,11 @@ public class EditAufgabenWindow {
 
     public EditAufgabenWindow() {
          ArrayList<Aufgaben> aufgaben = new ArrayList<>();
+         ArrayList<Projekt> projekte = new ArrayList<>();
 
         try {
             aufgaben = Aufgaben.getObjectsFromJson(Aufgaben.read(Aufgaben.getPath()), Aufgaben[].class);
+            projekte = Projekt.getObjectsFromJson(Projekt.read(Projekt.getPath()), Projekt[].class);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -42,6 +45,8 @@ public class EditAufgabenWindow {
 
         //Hinzufügen der Bereiche in die CombosBox
         for (Aufgaben p : aufgaben) aufgabenAll.addItem(p);
+        for (Projekt a : projekte) zugProjekt.addItem(a.getName());
+
 
         for (Aufgaben aAufgabenArr : aufgaben) {
             if (Objects.equals(aufgabenAll.getSelectedItem().toString(), aAufgabenArr.getTaskName())) {
@@ -53,8 +58,10 @@ public class EditAufgabenWindow {
 
                 deadline.setText(dateString);
 
-                //for (Aufgaben o : AufgabenArr) zugProjekt.addItem(o.getProjekt());
-                //zugProjekt.addItem(aAufgabenArr.getProjekt());
+
+
+                zugProjekt.setSelectedItem(aAufgabenArr.getProjekt().getName());
+
                 break;
             }
         }
@@ -79,8 +86,10 @@ public class EditAufgabenWindow {
 
                                 deadline.setText(dateString);
 
-                                //for (Aufgaben o : AufgabenArr) zugProjekt.addItem(o.getProjekt());
-                                //zugProjekt.addItem(aAufgabenArr.getProjekt());
+
+
+                                zugProjekt.setSelectedItem(aAufgabenArr.getProjekt().getName());
+
                                 break;
                             }
                         }
@@ -98,14 +107,25 @@ public class EditAufgabenWindow {
             public void actionPerformed(ActionEvent e) {
                 Aufgaben newAufgaben = new Aufgaben();
 
+
                 try {
                     ArrayList<Aufgaben> aufgabenArr = Aufgaben.getObjectsFromJson(Aufgaben.read(Aufgaben.getPath()), Aufgaben[].class);
+                    ArrayList<Projekt> projektArr = Projekt.getObjectsFromJson(Projekt.read(Projekt.getPath()), Projekt[].class);
+
 
                     for (int i = 0; i < aufgabenArr.size(); i++) {
                         if (Objects.equals(aufgabenAll.getSelectedItem().toString(), aufgabenArr.get(i).getTaskName())) {
                             newAufgaben.setTaskName(aufgabenName.getText());
                             newAufgaben.setTaskDescription(aufgabenBeschreibung.getText());
                             newAufgaben.setTaskDeadline(deadline.getText());
+
+                            for (Projekt p : projektArr) {
+                                if(Objects.equals(zugProjekt.getSelectedItem().toString(), p.getName())) {
+
+                                    newAufgaben.setProjekt(new Projekt(zugProjekt.getSelectedItem().toString(), p.getAuftraggeber(), p.getBereich()));
+
+                                }
+                            }
 
                             aufgabenArr.set(i, newAufgaben);
                             Aufgaben.write(Aufgaben.getPath(), Aufgaben.getJsonFromObjects(aufgabenArr));
