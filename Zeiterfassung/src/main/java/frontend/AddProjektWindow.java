@@ -3,7 +3,6 @@ package frontend;
 import backend.Projekt;
 import backend.Bereich;
 import backend.Auftraggeber;
-import com.google.gson.Gson;
 
 import javax.swing.*;
 import java.awt.*;
@@ -37,8 +36,13 @@ public class AddProjektWindow extends JFrame
                 newProjekt.setBereich((Bereich) comboBoxBereich.getSelectedItem());
                 newProjekt.setAuftraggeber((Auftraggeber) comboBoxAuftraggeber.getSelectedItem());
                 ArrayList<Projekt> speicherprojekte = new ArrayList<>();
-                if(comboBoxUeberProj.getSelectedItem()!=null) speicherprojekte.add((Projekt)comboBoxUeberProj.getSelectedItem());
-                newProjekt.setUnterprojekt(speicherprojekte);
+                if(!comboBoxUeberProj.getSelectedItem().toString().equals("kein"))
+                {
+                    if(comboBoxUeberProj.getSelectedItem()!=null)
+                        speicherprojekte.add((Projekt)comboBoxUeberProj.getSelectedItem());
+                }
+
+                newProjekt.setUeberprojekt(speicherprojekte);
 
                 try
                 {
@@ -77,6 +81,8 @@ public class AddProjektWindow extends JFrame
         for(Projekt p : projekte) comboBoxUeberProj.addItem(p);
         for(Bereich p : bereiche) comboBoxBereich.addItem(p);
         for(Auftraggeber p : auftraggeber) comboBoxAuftraggeber.addItem(p);
+
+        comboBoxUeberProj.insertItemAt("kein",0);
         
     }
 

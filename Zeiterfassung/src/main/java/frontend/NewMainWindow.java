@@ -5,9 +5,7 @@ import backend.Bereich;
 
 import javax.swing.*;
 import javax.swing.event.TreeModelListener;
-import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.TreeModel;
-import javax.swing.tree.TreePath;
+import javax.swing.tree.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -29,11 +27,13 @@ public class NewMainWindow extends JFrame {
     private JButton startButton;
     private JButton stopButton;
     private JTextArea textArea1;
+    private JComboBox cBAufgabe;
 
     public NewMainWindow() {
-    	
+
     	aktuellerBlock =  new Arbeitsblock();
-    	
+
+        loadProjektTree();
         startButton.addActionListener(new ActionListener()
         {
             @Override
@@ -50,42 +50,52 @@ public class NewMainWindow extends JFrame {
             {
             	aktuellerBlock.setEndzeit(new Date());
             	aktuellerBlock.setBeschreibung(textArea1.getText());
+
             }
         });
-        
-        
-    }
-    
-    public void datenSetzen()
-    {
-    	
+        cBAufgabe.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+
+            }
+        });
+
+
     }
 
-//    public void loadProjektTree()
-//    {
-//
-//        TreeModel projektTreeModel;
-//
-//        try
-//        {
-//
-//            ArrayList<Bereich> bereiche = Bereich.getObjectsFromJson(Bereich.read(Bereich.getPath()),Bereich[].class);
-//
-//            DefaultMutableTreeNode root = new DefaultMutableTreeNode("Projekte");
-//
-//            for (Bereich b:bereiche)
-//            {
-//                DefaultMutableTreeNode defaultMutableTreeNode = new DefaultMutableTreeNode(b);
-//                root.add(defaultMutableTreeNode);
-//            }
-//
-//
-//        }
-//        catch (IOException e)
-//        {
-//            e.printStackTrace();
-//        }
-//    }
+    public void datenSetzen()
+    {
+
+    }
+
+    public void loadProjektTree()
+    {
+
+        TreeModel projektTreeModel;
+
+        try
+        {
+
+            ArrayList<Bereich> bereiche = Bereich.getObjectsFromJson(Bereich.read(Bereich.getPath()),Bereich[].class);
+
+            DefaultMutableTreeNode root = new DefaultMutableTreeNode("Projekte");
+
+            for (Bereich b:bereiche)
+            {
+                DefaultMutableTreeNode defaultMutableTreeNode = new DefaultMutableTreeNode(b);
+                root.add(defaultMutableTreeNode);
+            }
+
+            treeProjekte.setModel(new DefaultTreeModel(root));
+
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
 
 
     {
