@@ -156,6 +156,21 @@ public class Mainwindow extends JFrame implements ActionListener {
             }
         });
 
+         /*
+        Button zum Editieren einer Identität
+         */
+        JButton jBEditIdent = new JButton("Identitäten bearbeiten");
+        jPanel.add(jBEditIdent);
+        jBEditIdent.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame editIdentWindow = new JFrame("EditIdentitaetWindow");
+                editIdentWindow.setContentPane(new EditIdentitaetWindow().editIdentPanel);
+                editIdentWindow.pack();
+                editIdentWindow.setVisible(true);
+            }
+        });
+
         /*
         Button zum Editieren eines Auftraggebers
          */

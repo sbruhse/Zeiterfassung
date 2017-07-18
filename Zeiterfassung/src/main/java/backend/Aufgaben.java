@@ -84,4 +84,9 @@ public class Aufgaben extends Datei<Aufgaben>{
     {
         return path;
     }
+    
+    public String toString()
+    {
+    	return getTaskName();
+    }
 }
