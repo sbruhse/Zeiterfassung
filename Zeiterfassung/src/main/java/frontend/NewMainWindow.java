@@ -9,7 +9,6 @@ import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
 
 import javax.swing.*;
-import javax.swing.event.TreeModelListener;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.*;
@@ -18,7 +17,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
  * Created by sbruhse on 17.07.2017.
@@ -26,8 +24,8 @@ import java.util.Date;
 public class NewMainWindow extends JFrame {
     public JPanel mainPanel;
     public Arbeitsblock aktuellerBlock;
-    private JButton auftraggeberButton;
-    private JButton identitätenButton;
+    private JButton auftraggeberHinzufuegen;
+    private JButton identitätenNeuButton;
     private JPanel leftPanel;
     private JTree treeProjekte;
     private JPanel centerPanel;
@@ -40,6 +38,12 @@ public class NewMainWindow extends JFrame {
     private JButton druckenButton;
     private JButton bearbeitenButton;
     private JButton löschenButton;
+    private JButton auftraggeberBearbeitenButton;
+    private JButton identitätenBearbeitenButton;
+    private JButton projektNeuButton;
+    private JButton bereichNeuButton;
+    private JButton aufgabeNeuButton;
+    private JButton aufgabeBearbeitenButton;
 
     Projekt selectedProjekt = null;
 
@@ -204,12 +208,12 @@ public class NewMainWindow extends JFrame {
         mainPanel.setLayout(new BorderLayout(0, 0));
         final JToolBar toolBar1 = new JToolBar();
         mainPanel.add(toolBar1, BorderLayout.NORTH);
-        auftraggeberButton = new JButton();
-        auftraggeberButton.setText("Auftraggeber");
-        toolBar1.add(auftraggeberButton);
-        identitätenButton = new JButton();
-        identitätenButton.setText("Identitäten");
-        toolBar1.add(identitätenButton);
+        auftraggeberHinzufuegen = new JButton();
+        auftraggeberHinzufuegen.setText("Auftraggeber");
+        toolBar1.add(auftraggeberHinzufuegen);
+        identitätenNeuButton = new JButton();
+        identitätenNeuButton.setText("Identitäten");
+        toolBar1.add(identitätenNeuButton);
         leftPanel = new JPanel();
         leftPanel.setLayout(new GridLayoutManager(2, 1, new Insets(0, 0, 0, 0), -1, -1));
         mainPanel.add(leftPanel, BorderLayout.WEST);

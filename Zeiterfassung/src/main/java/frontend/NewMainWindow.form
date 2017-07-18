@@ -2,7 +2,7 @@
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="frontend.NewMainWindow">
   <grid id="27dc6" binding="mainPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
     <constraints>
-      <xy x="20" y="20" width="810" height="583"/>
+      <xy x="20" y="20" width="989" height="737"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -12,24 +12,58 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="716b3" class="javax.swing.JButton" binding="auftraggeberButton" default-binding="true">
+          <component id="716b3" class="javax.swing.JButton" binding="auftraggeberHinzufuegen">
             <constraints/>
             <properties>
-              <text value="Auftraggeber"/>
+              <text value="Auftraggeber neu"/>
             </properties>
           </component>
-          <component id="60593" class="javax.swing.JButton" binding="identitätenButton" default-binding="true">
+          <component id="89b9c" class="javax.swing.JButton" binding="auftraggeberBearbeitenButton" default-binding="true">
             <constraints/>
             <properties>
-              <text value="Identitäten"/>
+              <text value="Auftraggeber bearbeiten"/>
+            </properties>
+          </component>
+          <component id="5c03" class="javax.swing.JToolBar$Separator">
+            <constraints/>
+            <properties/>
+          </component>
+          <component id="60593" class="javax.swing.JButton" binding="identitätenNeuButton" default-binding="true">
+            <constraints/>
+            <properties>
+              <text value="Identitäten neu"/>
+            </properties>
+          </component>
+          <component id="78445" class="javax.swing.JButton" binding="identitätenBearbeitenButton" default-binding="true">
+            <constraints/>
+            <properties>
+              <text value="Identitäten bearbeiten"/>
+            </properties>
+          </component>
+          <component id="20a6f" class="javax.swing.JToolBar$Separator">
+            <constraints/>
+            <properties/>
+          </component>
+          <component id="347d7" class="javax.swing.JButton" binding="aufgabeNeuButton" default-binding="true">
+            <constraints/>
+            <properties>
+              <text value="Aufgabe neu"/>
+            </properties>
+          </component>
+          <component id="4809f" class="javax.swing.JButton" binding="aufgabeBearbeitenButton" default-binding="true">
+            <constraints/>
+            <properties>
+              <text value="Aufgabe bearbeiten"/>
             </properties>
           </component>
         </children>
       </toolbar>
-      <grid id="d6ff7" binding="leftPanel" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="d6ff7" binding="leftPanel" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints border-constraint="West"/>
-        <properties/>
+        <properties>
+          <minimumSize width="500" height="450"/>
+        </properties>
         <border type="none"/>
         <children>
           <component id="5ee8a" class="javax.swing.JTree" binding="treeProjekte">
@@ -63,6 +97,31 @@
                 <constraints/>
                 <properties>
                   <text value="Löschen"/>
+                </properties>
+              </component>
+            </children>
+          </toolbar>
+          <toolbar id="4c27f">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="-1" height="20"/>
+              </grid>
+            </constraints>
+            <properties>
+              <floatable value="true"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="103c" class="javax.swing.JButton" binding="projektNeuButton" default-binding="true">
+                <constraints/>
+                <properties>
+                  <text value="Projekt neu"/>
+                </properties>
+              </component>
+              <component id="ea18e" class="javax.swing.JButton" binding="bereichNeuButton" default-binding="true">
+                <constraints/>
+                <properties>
+                  <text value="Bereich neu"/>
                 </properties>
               </component>
             </children>
