@@ -1,8 +1,5 @@
 package backend;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
 import java.util.ArrayList;
 
 /**
@@ -71,27 +68,27 @@ public class Projekt extends Datei<Projekt>
 	 * Getter für {@link #unterprojekt unterprojekt}
 	 * @return
 	 */
-	public ArrayList<Projekt> getUnterprojekt()
+	public ArrayList<Projekt> getUeberprojekt()
 	{
 		return unterprojekt;
 	}
 
 	/**
 	 * Setter für {@link #unterprojekt unterprojekt}
-	 * @param unterprojekt
+	 * @param ueberprojekt
 	 */
-	public void setUnterprojekt(ArrayList<Projekt> unterprojekt)
+	public void setUeberprojekt(ArrayList<Projekt> ueberprojekt)
 	{
 		this.unterprojekt = unterprojekt;
 	}
 
 	/**
 	 * Ein Unterprojekt hinzufügen
-	 * @param unterprojekt
+	 * @param ueberprojekt
 	 */
-	public void addUnterprojekt(Projekt unterprojekt)
+	public void addUeberprojekt(Projekt ueberprojekt)
 	{
-		getUnterprojekt().add(unterprojekt);
+		getUeberprojekt().add(ueberprojekt);
 	}
 
 	/**
