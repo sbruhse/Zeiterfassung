@@ -320,6 +320,35 @@ public class NewMainWindow extends JFrame
                 loadProjektTree();
             }
         });
+        bearbeitenButton.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+
+            }
+        });
+        bearbeitenButton.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                if (selectedBereich != null)
+                {
+                    JFrame editBereichWindow = new JFrame("EditBereichWindow");
+                    editBereichWindow.setContentPane(new EditBereichWindow().editBereichePanel);
+                    editBereichWindow.pack();
+                    editBereichWindow.setVisible(true);
+                }
+                else if (selectedProjekt != null)
+                {
+                    JFrame editProjektWindow = new JFrame("EditProjektWindow");
+                    editProjektWindow.setContentPane(new EditProjektWindow().mainPanel);
+                    editProjektWindow.pack();
+                    editProjektWindow.setVisible(true);
+                }
+            }
+        });
     }
 
 
