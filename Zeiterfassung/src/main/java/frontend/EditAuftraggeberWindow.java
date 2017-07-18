@@ -4,7 +4,6 @@ import backend.Auftraggeber;
 import backend.Bereich;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
-import sun.security.util.AuthResources;
 
 import javax.swing.*;
 import java.awt.*;
