@@ -4,9 +4,12 @@ import backend.Arbeitsblock;
 import backend.Aufgaben;
 import backend.Bereich;
 import backend.Projekt;
+import com.sun.jndi.ldap.Ber;
 
 import javax.swing.*;
 import javax.swing.event.TreeModelListener;
+import javax.swing.event.TreeSelectionEvent;
+import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -32,12 +35,19 @@ public class NewMainWindow extends JFrame {
     private JComboBox cBAufgabe;
     private JLabel labelStart;
     private JLabel labelZeit;
+    private JButton druckenButton;
+    private JButton bearbeitenButton;
+    private JButton löschenButton;
 
-    public NewMainWindow() {
+    Projekt selectedProjekt = null;
+
+    public NewMainWindow()
+    {
 
         aktuellerBlock = new Arbeitsblock();
 
         loadProjektTree();
+        loadAufgaben();
         //Combobox füllen
     	ArrayList<Aufgaben> aufgabenliste = new ArrayList<>();
     	try {
@@ -94,6 +104,20 @@ public class NewMainWindow extends JFrame {
         });
 
 
+        treeProjekte.addTreeSelectionListener(new TreeSelectionListener()
+        {
+            @Override
+            public void valueChanged(TreeSelectionEvent e)
+            {
+                DefaultMutableTreeNode node = (DefaultMutableTreeNode)treeProjekte.getLastSelectedPathComponent();
+                if(node == null || node.getUserObject().getClass() == Bereich.class)
+                    selectedProjekt = null;
+                else
+                    selectedProjekt = (Projekt)node.getUserObject();
+
+                loadAufgaben();
+            }
+        });
     }
 
 
@@ -103,7 +127,22 @@ public class NewMainWindow extends JFrame {
     	aktuellerBlock.setAufgabe((Aufgaben) cBAufgabe.getSelectedItem());
     }
 
-    public void loadProjektTree() {
+    public void loadAufgaben()
+    {
+        if(selectedProjekt != null)
+        {
+
+            ArrayList<Aufgaben> aufgaben = Aufgaben.getAufgaben(selectedProjekt);
+
+            cBAufgabe.removeAllItems();
+            cBAufgabe.addItem(aufgaben);
+        }
+        else
+            cBAufgabe.removeAllItems();
+    }
+
+    public void loadProjektTree()
+    {
 
         TreeModel projektTreeModel;
 
