@@ -2,6 +2,7 @@ package frontend;
 
 import backend.Arbeitsblock;
 import backend.Bereich;
+import backend.Projekt;
 
 import javax.swing.*;
 import javax.swing.event.TreeModelListener;
@@ -53,14 +54,14 @@ public class NewMainWindow extends JFrame {
 
             }
         });
-        cBAufgabe.addActionListener(new ActionListener()
-        {
-            @Override
-            public void actionPerformed(ActionEvent e)
-            {
-
-            }
-        });
+//        cBAufgabe.addActionListener(new ActionListener()
+//        {
+//            @Override
+//            public void actionPerformed(ActionEvent e)
+//            {
+//
+//            }
+//        });
 
 
     }
@@ -79,12 +80,21 @@ public class NewMainWindow extends JFrame {
         {
 
             ArrayList<Bereich> bereiche = Bereich.getObjectsFromJson(Bereich.read(Bereich.getPath()),Bereich[].class);
+            ArrayList<Projekt> projekte = Projekt.getObjectsFromJson(Projekt.read(Projekt.getPath()),Projekt[].class);
 
             DefaultMutableTreeNode root = new DefaultMutableTreeNode("Projekte");
 
             for (Bereich b:bereiche)
             {
                 DefaultMutableTreeNode defaultMutableTreeNode = new DefaultMutableTreeNode(b);
+                for(Projekt p:projekte)
+                {
+                    if(p.getBereich().getName().equals(b.getName()))
+                    {
+                        defaultMutableTreeNode.add(new DefaultMutableTreeNode(p));
+                    }
+
+                }
                 root.add(defaultMutableTreeNode);
             }
 
