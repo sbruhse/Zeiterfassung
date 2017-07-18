@@ -112,6 +112,30 @@ public class NewMainWindow extends JFrame {
                 loadAufgaben();
             }
         });
+        druckenButton.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+
+            }
+        });
+        bearbeitenButton.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+
+            }
+        });
+        löschenButton.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+
+            }
+        });
     }
 
 
@@ -126,7 +150,8 @@ public class NewMainWindow extends JFrame {
             ArrayList<Aufgaben> aufgaben = Aufgaben.getAufgaben(selectedProjekt);
 
             cBAufgabe.removeAllItems();
-            cBAufgabe.addItem(aufgaben);
+            for(Aufgaben a:aufgaben)
+                cBAufgabe.addItem(a);
         } else
             cBAufgabe.removeAllItems();
     }
