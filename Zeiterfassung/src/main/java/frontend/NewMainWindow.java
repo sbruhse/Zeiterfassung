@@ -1,7 +1,17 @@
 package frontend;
 
+import backend.Bereich;
+
 import javax.swing.*;
+import javax.swing.event.TreeModelListener;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.TreeModel;
+import javax.swing.tree.TreePath;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Created by sbruhse on 17.07.2017.
@@ -11,15 +21,56 @@ public class NewMainWindow extends JFrame {
     private JButton auftraggeberButton;
     private JButton identitätenButton;
     private JPanel leftPanel;
-    private JTree tree1;
+    private JTree treeProjekte;
     private JPanel centerPanel;
     private JButton startButton;
     private JButton stopButton;
     private JTextArea textArea1;
 
     public NewMainWindow() {
+        startButton.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
 
+            }
+        });
+        stopButton.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+
+            }
+        });
     }
+
+//    public void loadProjektTree()
+//    {
+//
+//        TreeModel projektTreeModel;
+//
+//        try
+//        {
+//
+//            ArrayList<Bereich> bereiche = Bereich.getObjectsFromJson(Bereich.read(Bereich.getPath()),Bereich[].class);
+//
+//            DefaultMutableTreeNode root = new DefaultMutableTreeNode("Projekte");
+//
+//            for (Bereich b:bereiche)
+//            {
+//                DefaultMutableTreeNode defaultMutableTreeNode = new DefaultMutableTreeNode(b);
+//                root.add(defaultMutableTreeNode);
+//            }
+//
+//
+//        }
+//        catch (IOException e)
+//        {
+//            e.printStackTrace();
+//        }
+//    }
 
 
     {
@@ -50,8 +101,8 @@ public class NewMainWindow extends JFrame {
         leftPanel = new JPanel();
         leftPanel.setLayout(new BorderLayout(0, 0));
         mainPanel.add(leftPanel, BorderLayout.WEST);
-        tree1 = new JTree();
-        leftPanel.add(tree1, BorderLayout.CENTER);
+        treeProjekte = new JTree();
+        leftPanel.add(treeProjekte, BorderLayout.CENTER);
         centerPanel = new JPanel();
         centerPanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(5, 1, new Insets(0, 0, 0, 0), -1, -1));
         mainPanel.add(centerPanel, BorderLayout.CENTER);
