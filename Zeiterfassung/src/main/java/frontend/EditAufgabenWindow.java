@@ -2,6 +2,7 @@ package frontend;
 
 
 import backend.Aufgaben;
+import backend.Projekt;
 
 import javax.swing.*;
 import java.awt.*;
@@ -32,9 +33,11 @@ public class EditAufgabenWindow {
 
     public EditAufgabenWindow() {
          ArrayList<Aufgaben> aufgaben = new ArrayList<>();
+         ArrayList<Projekt> projekte = new ArrayList<>();
 
         try {
             aufgaben = Aufgaben.getObjectsFromJson(Aufgaben.read(Aufgaben.getPath()), Aufgaben[].class);
+            projekte = Projekt.getObjectsFromJson(Projekt.read(Projekt.getPath()), Projekt[].class);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -42,6 +45,9 @@ public class EditAufgabenWindow {
 
         //Hinzufügen der Bereiche in die CombosBox
         for (Aufgaben p : aufgaben) aufgabenAll.addItem(p);
+        for (Projekt a : projekte) zugProjekt.addItem(a);
+        //for (Aufgaben o : aufgaben) zugProjekt.addItem(o.getProjekt());
+
 
         for (Aufgaben aAufgabenArr : aufgaben) {
             if (Objects.equals(aufgabenAll.getSelectedItem().toString(), aAufgabenArr.getTaskName())) {
@@ -53,8 +59,8 @@ public class EditAufgabenWindow {
 
                 deadline.setText(dateString);
 
-                //for (Aufgaben o : AufgabenArr) zugProjekt.addItem(o.getProjekt());
-                //zugProjekt.addItem(aAufgabenArr.getProjekt());
+               zugProjekt.setSelectedItem(aAufgabenArr.getProjekt().getName());
+
                 break;
             }
         }
@@ -81,6 +87,10 @@ public class EditAufgabenWindow {
 
                                 //for (Aufgaben o : AufgabenArr) zugProjekt.addItem(o.getProjekt());
                                 //zugProjekt.addItem(aAufgabenArr.getProjekt());
+                                zugProjekt.setSelectedItem(aAufgabenArr.getProjekt().getName());
+
+
+
                                 break;
                             }
                         }
