@@ -318,4 +318,30 @@ read</panel_attributes>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>360.0;10.0;360.0;40.0;180.0;40.0;180.0;300.0;10.0;300.0;10.0;340.0</additional_attributes>
   </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>363</x>
+      <y>539</y>
+      <w>121</w>
+      <h>154</h>
+    </coordinates>
+    <panel_attributes>Adresse
+--
+Strasse
+PLZ
+Ort</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>418</x>
+      <y>473</y>
+      <w>33</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
 </diagram>
