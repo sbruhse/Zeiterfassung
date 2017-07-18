@@ -37,7 +37,6 @@ public class NewMainWindow extends JFrame
     private JTextArea textArea1;
     private JComboBox cBAufgabe;
     private JLabel labelStart;
-    private JLabel labelZeit;
     private JButton druckenButton;
     private JButton bearbeitenButton;
     private JButton löschenButton;
@@ -47,12 +46,14 @@ public class NewMainWindow extends JFrame
     private JButton bereichNeuButton;
     private JButton aufgabeNeuButton;
     private JButton aufgabeBearbeitenButton;
+    public JButton reloadButton;
 
     Projekt selectedProjekt = null;
+    Bereich selectedBereich = null;
 
     public static void main(String[] args)
     {
-        NewMainWindow newMainWindow= new NewMainWindow();
+        NewMainWindow newMainWindow = new NewMainWindow();
         newMainWindow.setContentPane(new NewMainWindow().mainPanel);
         newMainWindow.pack();
         newMainWindow.setVisible(true);
@@ -108,7 +109,7 @@ public class NewMainWindow extends JFrame
                     ArrayList<Arbeitsblock> bloecke = Arbeitsblock.getObjectsFromJson(Arbeitsblock.read(Arbeitsblock.getPath()), Arbeitsblock[].class);
                     bloecke.add(aktuellerBlock);
                     Arbeitsblock.write(Arbeitsblock.getPath(), Arbeitsblock.getJsonFromObjects(bloecke));
-                    
+
                     //Block zurücksetzen
                     aktuellerBlock = new Arbeitsblock();
                     stopButton.setVisible(false);
@@ -140,10 +141,22 @@ public class NewMainWindow extends JFrame
             public void valueChanged(TreeSelectionEvent e)
             {
                 DefaultMutableTreeNode node = (DefaultMutableTreeNode) treeProjekte.getLastSelectedPathComponent();
-                if (node == null || node.getUserObject().getClass() == Bereich.class)
+                if (node == null)
+                {
+                    selectedBereich = null;
                     selectedProjekt = null;
+                }
+                else if (node.getUserObject().getClass() == Bereich.class)
+                {
+                    selectedBereich = (Bereich) node.getUserObject();
+                    selectedProjekt = null;
+                }
                 else
+                {
                     selectedProjekt = (Projekt) node.getUserObject();
+                    selectedBereich = null;
+                }
+
 
                 loadAufgaben();
             }
@@ -153,7 +166,7 @@ public class NewMainWindow extends JFrame
             @Override
             public void actionPerformed(ActionEvent e)
             {
-            	selectedProjekt.projektDrucken();
+                selectedProjekt.projektDrucken();
             }
         });
         bearbeitenButton.addActionListener(new ActionListener()
@@ -169,7 +182,47 @@ public class NewMainWindow extends JFrame
             @Override
             public void actionPerformed(ActionEvent e)
             {
-
+                if (selectedBereich != null)
+                {
+                    try
+                    {
+                        ArrayList<Bereich> bereiche = Bereich.getObjectsFromJson(Bereich.read(Bereich.getPath()), Bereich[].class);
+                        for (Bereich b : bereiche)
+                        {
+                            if (b.getName().equals(selectedBereich.getName()))
+                            {
+                                bereiche.remove(b);
+                                break;
+                            }
+                        }
+                        Bereich.write(Bereich.getPath(), Bereich.getJsonFromObjects(bereiche));
+                    }
+                    catch (IOException e1)
+                    {
+                        e1.printStackTrace();
+                    }
+                }
+                else if (selectedProjekt != null)
+                {
+                    try
+                    {
+                        ArrayList<Projekt> projekte = Projekt.getObjectsFromJson(Projekt.read(Projekt.getPath()), Projekt[].class);
+                        for (Projekt p : projekte)
+                        {
+                            if (p.getName().equals(selectedProjekt.getName()) && p.getBereich().getName().equals(selectedProjekt.getBereich().getName()))
+                            {
+                                projekte.remove(p);
+                                break;
+                            }
+                        }
+                        Projekt.write(Projekt.getPath(), Projekt.getJsonFromObjects(projekte));
+                    }
+                    catch (IOException e1)
+                    {
+                        e1.printStackTrace();
+                    }
+                }
+                loadProjektTree();
             }
         });
         projektNeuButton.addActionListener(new ActionListener()
@@ -186,7 +239,8 @@ public class NewMainWindow extends JFrame
         bereichNeuButton.addActionListener(new ActionListener()
         {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e)
+            {
                 JFrame addBereichWindow = new JFrame("AddBereichWindow");
                 addBereichWindow.setContentPane(new AddBereichWindow().mainPanel);
                 addBereichWindow.pack();
@@ -196,7 +250,8 @@ public class NewMainWindow extends JFrame
         auftraggeberHinzufuegen.addActionListener(new ActionListener()
         {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e)
+            {
                 JFrame addAuftraggeberWindow = new JFrame("AddAuftraggeberWindow");
                 addAuftraggeberWindow.setContentPane(new AddAuftraggeberWindow().mainPanel);
                 addAuftraggeberWindow.pack();
@@ -206,7 +261,8 @@ public class NewMainWindow extends JFrame
         auftraggeberBearbeitenButton.addActionListener(new ActionListener()
         {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e)
+            {
                 JFrame editAuftraggeberWindow = new JFrame("EditAuftraggeberWindow");
                 editAuftraggeberWindow.setContentPane(new EditAuftraggeberWindow().editAuftraggeberPanel);
                 editAuftraggeberWindow.pack();
@@ -216,7 +272,8 @@ public class NewMainWindow extends JFrame
         identitätenNeuButton.addActionListener(new ActionListener()
         {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e)
+            {
                 JFrame addIdentitaetWindow = new JFrame("AddIdentitaetWindow");
                 addIdentitaetWindow.setContentPane(new AddIdentitaetWindow().mainPanelIdentitaet);
                 addIdentitaetWindow.pack();
@@ -226,7 +283,8 @@ public class NewMainWindow extends JFrame
         identitätenBearbeitenButton.addActionListener(new ActionListener()
         {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e)
+            {
                 JFrame editIdentWindow = new JFrame("EditIdentitaetWindow");
                 editIdentWindow.setContentPane(new EditIdentitaetWindow().editIdentPanel);
                 editIdentWindow.pack();
@@ -236,7 +294,8 @@ public class NewMainWindow extends JFrame
         aufgabeNeuButton.addActionListener(new ActionListener()
         {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e)
+            {
                 JFrame addAufgabeWindow = new JFrame("AddAufgabeWindow");
                 addAufgabeWindow.setContentPane(new AddAufgabeWindow().mainPanel);
                 addAufgabeWindow.pack();
@@ -249,6 +308,55 @@ public class NewMainWindow extends JFrame
             public void actionPerformed(ActionEvent e)
             {
 
+            }
+        });
+        reloadButton.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                loadAufgaben();
+                loadProjektTree();
+            }
+        });
+        bearbeitenButton.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+
+            }
+        });
+        bearbeitenButton.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                if (selectedBereich != null)
+                {
+                    JFrame editBereichWindow = new JFrame("EditBereichWindow");
+                    editBereichWindow.setContentPane(new EditBereichWindow().editBereichePanel);
+                    editBereichWindow.pack();
+                    editBereichWindow.setVisible(true);
+                }
+                else if (selectedProjekt != null)
+                {
+                    JFrame editProjektWindow = new JFrame("EditProjektWindow");
+                    editProjektWindow.setContentPane(new EditProjektWindow().mainPanel);
+                    editProjektWindow.pack();
+                    editProjektWindow.setVisible(true);
+                }
+            }
+        });
+        aufgabeBearbeitenButton.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                JFrame editAufgabenWindow = new JFrame("EditAufgabenWindow");
+                editAufgabenWindow.setContentPane(new EditAufgabenWindow().editAufgabenPanel);
+                editAufgabenWindow.pack();
+                editAufgabenWindow.setVisible(true);
             }
         });
     }
@@ -332,22 +440,27 @@ public class NewMainWindow extends JFrame
         mainPanel.setLayout(new BorderLayout(0, 0));
         final JToolBar toolBar1 = new JToolBar();
         mainPanel.add(toolBar1, BorderLayout.NORTH);
+        reloadButton = new JButton();
+        reloadButton.setText("Reload");
+        toolBar1.add(reloadButton);
+        final JToolBar.Separator toolBar$Separator1 = new JToolBar.Separator();
+        toolBar1.add(toolBar$Separator1);
         auftraggeberHinzufuegen = new JButton();
         auftraggeberHinzufuegen.setText("Auftraggeber neu");
         toolBar1.add(auftraggeberHinzufuegen);
         auftraggeberBearbeitenButton = new JButton();
         auftraggeberBearbeitenButton.setText("Auftraggeber bearbeiten");
         toolBar1.add(auftraggeberBearbeitenButton);
-        final JToolBar.Separator toolBar$Separator1 = new JToolBar.Separator();
-        toolBar1.add(toolBar$Separator1);
+        final JToolBar.Separator toolBar$Separator2 = new JToolBar.Separator();
+        toolBar1.add(toolBar$Separator2);
         identitätenNeuButton = new JButton();
         identitätenNeuButton.setText("Identitäten neu");
         toolBar1.add(identitätenNeuButton);
         identitätenBearbeitenButton = new JButton();
         identitätenBearbeitenButton.setText("Identitäten bearbeiten");
         toolBar1.add(identitätenBearbeitenButton);
-        final JToolBar.Separator toolBar$Separator2 = new JToolBar.Separator();
-        toolBar1.add(toolBar$Separator2);
+        final JToolBar.Separator toolBar$Separator3 = new JToolBar.Separator();
+        toolBar1.add(toolBar$Separator3);
         aufgabeNeuButton = new JButton();
         aufgabeNeuButton.setText("Aufgabe neu");
         toolBar1.add(aufgabeNeuButton);
@@ -387,17 +500,11 @@ public class NewMainWindow extends JFrame
         final JPanel panel1 = new JPanel();
         panel1.setLayout(new GridBagLayout());
         centerPanel.add(panel1, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
-        final JPanel spacer1 = new JPanel();
+        stopButton = new JButton();
+        stopButton.setText("Stop");
         GridBagConstraints gbc;
         gbc = new GridBagConstraints();
         gbc.gridx = 1;
-        gbc.gridy = 0;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        panel1.add(spacer1, gbc);
-        stopButton = new JButton();
-        stopButton.setText("Stop");
-        gbc = new GridBagConstraints();
-        gbc.gridx = 2;
         gbc.gridy = 0;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         panel1.add(stopButton, gbc);
@@ -408,8 +515,8 @@ public class NewMainWindow extends JFrame
         gbc.gridy = 0;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         panel1.add(startButton, gbc);
-        final Spacer spacer2 = new Spacer();
-        centerPanel.add(spacer2, new GridConstraints(4, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        final Spacer spacer1 = new Spacer();
+        centerPanel.add(spacer1, new GridConstraints(4, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         final JPanel panel2 = new JPanel();
         panel2.setLayout(new GridBagLayout());
         centerPanel.add(panel2, new GridConstraints(3, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
@@ -420,19 +527,6 @@ public class NewMainWindow extends JFrame
         gbc.gridy = 0;
         gbc.anchor = GridBagConstraints.WEST;
         panel2.add(label1, gbc);
-        final JPanel spacer3 = new JPanel();
-        gbc = new GridBagConstraints();
-        gbc.gridx = 1;
-        gbc.gridy = 0;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        panel2.add(spacer3, gbc);
-        final JLabel label2 = new JLabel();
-        label2.setText("Vergangene Zeit");
-        gbc = new GridBagConstraints();
-        gbc.gridx = 2;
-        gbc.gridy = 0;
-        gbc.anchor = GridBagConstraints.WEST;
-        panel2.add(label2, gbc);
         labelStart = new JLabel();
         labelStart.setText("Label");
         gbc = new GridBagConstraints();
@@ -440,13 +534,6 @@ public class NewMainWindow extends JFrame
         gbc.gridy = 1;
         gbc.anchor = GridBagConstraints.WEST;
         panel2.add(labelStart, gbc);
-        labelZeit = new JLabel();
-        labelZeit.setText("Label");
-        gbc = new GridBagConstraints();
-        gbc.gridx = 2;
-        gbc.gridy = 1;
-        gbc.anchor = GridBagConstraints.WEST;
-        panel2.add(labelZeit, gbc);
         final JPanel panel3 = new JPanel();
         panel3.setLayout(new GridLayoutManager(2, 1, new Insets(0, 0, 0, 0), -1, -1));
         centerPanel.add(panel3, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
@@ -454,8 +541,8 @@ public class NewMainWindow extends JFrame
         panel3.add(cBAufgabe, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         textArea1 = new JTextArea();
         panel3.add(textArea1, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_WANT_GROW, null, new Dimension(150, 50), null, 0, false));
-        final Spacer spacer4 = new Spacer();
-        centerPanel.add(spacer4, new GridConstraints(2, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        final Spacer spacer2 = new Spacer();
+        centerPanel.add(spacer2, new GridConstraints(2, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
     }
 
     /**
