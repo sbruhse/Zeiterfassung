@@ -23,14 +23,10 @@ public abstract class Datei<T>
      */
     public static <T> ArrayList<T> getObjectsFromJson(String json, Class<T[]> clazz)
     {
-    	
     	if(json=="") return new ArrayList<>();
     	
         Gson gson = new Gson();
         return new ArrayList<>(Arrays.asList(gson.fromJson(json, clazz)));
-        //ArrayList<T> list =  new ArrayList<>(Arrays.asList(gson.fromJson(json, clazz)));
-        //return list;
-
     }
 
     /**
