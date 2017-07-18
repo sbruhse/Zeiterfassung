@@ -115,7 +115,9 @@ public class EditProjektWindow {
 
                                         for (Auftraggeber a : auftraggeberArr) {
                                             if (Objects.equals(comboBoxAuftraggeber.getSelectedItem().toString(), a.getNachname())) {
-                                                newProjekt.setAuftraggeber(new Auftraggeber(a.getVorname(), a.getNachname()));
+                                            	Auftraggeber auftraggeber = new Auftraggeber(a.getVorname(), a.getNachname());
+                                            	auftraggeber.setAdresse(a.getAdresse());
+                                                newProjekt.setAuftraggeber(auftraggeber);
                                                 System.out.println("for loop if 03");
 
                                             }
