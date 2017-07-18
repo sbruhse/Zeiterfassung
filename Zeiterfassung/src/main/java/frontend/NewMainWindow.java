@@ -44,7 +44,6 @@ public class NewMainWindow extends JFrame {
 			e1.printStackTrace();
 		}
     	
-    	cBAufgabe = new JComboBox<>();
     	for(Aufgaben a : aufgabenliste) cBAufgabe.addItem(a);
 
     	
@@ -59,6 +58,7 @@ public class NewMainWindow extends JFrame {
             	datenSetzen();
             }
         });
+        
         stopButton.addActionListener(new ActionListener()
         {
             @Override
@@ -66,9 +66,23 @@ public class NewMainWindow extends JFrame {
             {
             	aktuellerBlock.arbeitsblockStoppen();
             	datenSetzen();
+            	
+				try {
+					//Gespeicherte Blöcke laden und hinzufügen
+					ArrayList<Arbeitsblock> bloecke = Arbeitsblock.getObjectsFromJson(Arbeitsblock.read(Arbeitsblock.getPath()), Arbeitsblock[].class);
+					bloecke.add(aktuellerBlock);
+					Arbeitsblock.write(Arbeitsblock.getPath(),Arbeitsblock.getJsonFromObjects(bloecke));
+					
+					//Block zurücksetzen
+					aktuellerBlock = new Arbeitsblock();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 
             }
         });
+        
         cBAufgabe.addActionListener(new ActionListener()
         {
             @Override
