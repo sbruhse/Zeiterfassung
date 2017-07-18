@@ -47,7 +47,6 @@ public class AddProjektWindow extends JFrame
                 try
                 {
                     ArrayList<Projekt> projekte = Projekt.getObjectsFromJson(Projekt.read(Projekt.getPath()), Projekt[].class);
-                    System.out.println(projekte.get(0).getName());
                     projekte.add(newProjekt);
                     Projekt.write(Projekt.getPath(),Projekt.getJsonFromObjects(projekte));
 

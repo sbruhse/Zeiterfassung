@@ -21,7 +21,7 @@ public class Projekt extends Datei<Projekt>
 	/**
 	 * Unterprojekte
 	 */
-	private ArrayList<Projekt> unterprojekt;
+	private ArrayList<Projekt> ueberprojekt;
 
 	/**
 	 * Bereich für welchen das Projekt ist
@@ -65,21 +65,21 @@ public class Projekt extends Datei<Projekt>
 	}
 
 	/**
-	 * Getter für {@link #unterprojekt unterprojekt}
+	 * Getter für {@link #ueberprojekt unterprojekt}
 	 * @return
 	 */
 	public ArrayList<Projekt> getUeberprojekt()
 	{
-		return unterprojekt;
+		return ueberprojekt;
 	}
 
 	/**
-	 * Setter für {@link #unterprojekt unterprojekt}
+	 * Setter für {@link #ueberprojekt unterprojekt}
 	 * @param ueberprojekt
 	 */
 	public void setUeberprojekt(ArrayList<Projekt> ueberprojekt)
 	{
-		this.unterprojekt = unterprojekt;
+		this.ueberprojekt = ueberprojekt;
 	}
 
 	/**

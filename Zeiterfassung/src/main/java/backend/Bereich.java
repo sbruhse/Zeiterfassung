@@ -2,6 +2,7 @@ package backend;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.sun.jndi.ldap.Ber;
 
 import java.util.ArrayList;
 
@@ -16,6 +17,7 @@ public class Bereich extends Datei<Bereich>
 	 * Name des Bereichs
 	 */
 	private String name;
+
 
 	/**
 	 * Getter für {@link #name name}
@@ -33,6 +35,10 @@ public class Bereich extends Datei<Bereich>
 	public void setName(String name)
 	{
 		this.name = name;
+	}
+
+	public Bereich() {
+
 	}
 
 	public Bereich(String name)
