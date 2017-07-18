@@ -48,8 +48,10 @@ public class Projekt extends Datei<Projekt>
 			for(Arbeitsblock ab:bloecke) sum += ab.getStunden();
 			
 		}
-		Rechnung neueRechnung = new Rechnung(sum, (float) 5.0, auftraggeber.getNachname(), "Hier und da", 7);
-
+		
+		Rechnung neueRechnung = new Rechnung(sum, stundensatz, auftraggeber.getNachname(), auftraggeber.getAdresse().getAdressString(), 7);
+		neueRechnung.rechnungErstellen();
+		neueRechnung.rechnungDrucken(getName());
 		
 	}
 

@@ -19,20 +19,15 @@ public class Auftraggeber extends Datei<Auftraggeber>
 	 */
 	private String nachname;
 
-	/**
-	 * Stadt, wo der Auftraggeber sitzt
-	 */
-	private String stadt;
+	private Adresse adresse;
+	
+	public Adresse getAdresse() {
+		return adresse;
+	}
 
-	/**
-	 * Postleitzahl der Stadt, wo der Auftraggeber sitzt
-	 */
-	private String plz;
-
-	/**
-	 * Straße, in der der Auftragger sitzt
-	 */
-	private String strasse;
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
+	}
 
 	/**
 	 * Getter für {@link #vorname vorname}
@@ -76,7 +71,7 @@ public class Auftraggeber extends Datei<Auftraggeber>
 	 */
 	public String getStadt()
 	{
-		return stadt;
+		return adresse.getOrt();
 	}
 
 	/**
@@ -85,7 +80,7 @@ public class Auftraggeber extends Datei<Auftraggeber>
 	 */
 	public void setStadt(String stadt)
 	{
-		this.stadt = stadt;
+		adresse.setOrt(stadt);
 	}
 
 	/**
@@ -94,7 +89,7 @@ public class Auftraggeber extends Datei<Auftraggeber>
 	 */
 	public String getPlz()
 	{
-		return plz;
+		return adresse.getPlz();
 	}
 
 	/**
@@ -103,7 +98,7 @@ public class Auftraggeber extends Datei<Auftraggeber>
 	 */
 	public void setPlz(String plz)
 	{
-		this.plz = plz;
+		adresse.setPlz(plz);
 	}
 
 	/**
@@ -112,7 +107,7 @@ public class Auftraggeber extends Datei<Auftraggeber>
 	 */
 	public String getStrasse()
 	{
-		return strasse;
+		return adresse.getStrasse();
 	}
 
 	/**
@@ -121,7 +116,7 @@ public class Auftraggeber extends Datei<Auftraggeber>
 	 */
 	public void setStrasse(String strasse)
 	{
-		this.strasse = strasse;
+		adresse.setStrasse(strasse);
 	}
 
 	/**

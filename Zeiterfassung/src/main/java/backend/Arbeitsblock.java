@@ -70,6 +70,15 @@ public class Arbeitsblock extends Datei<Arbeitsblock>
 		this.endzeit = endzeit;
 	}
 
+	
+	/**
+	 * 
+	 * @return Differenz zwischen Start und Ende in Stunden
+	 */
+	public double getStunden()
+	{
+		return (endzeit.getTime() - startzeit.getTime()) / 1000 / 60 / 60;
+	}
 
 	/**
 	 * Getter für {@link #aufgabe aufgabe}
