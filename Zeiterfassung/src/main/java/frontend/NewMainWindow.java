@@ -16,7 +16,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by sbruhse on 17.07.2017.
@@ -88,6 +90,7 @@ public class NewMainWindow extends JFrame
                 datenSetzen();
                 stopButton.setVisible(true);
                 startButton.setVisible(false);
+                labelStart.setText(new SimpleDateFormat("HH:mm:ss").format(new Date()));
             }
         });
 
@@ -105,11 +108,12 @@ public class NewMainWindow extends JFrame
                     ArrayList<Arbeitsblock> bloecke = Arbeitsblock.getObjectsFromJson(Arbeitsblock.read(Arbeitsblock.getPath()), Arbeitsblock[].class);
                     bloecke.add(aktuellerBlock);
                     Arbeitsblock.write(Arbeitsblock.getPath(), Arbeitsblock.getJsonFromObjects(bloecke));
-
+                    
                     //Block zurücksetzen
                     aktuellerBlock = new Arbeitsblock();
                     stopButton.setVisible(false);
                     startButton.setVisible(true);
+                    labelStart.setText("");
                 }
                 catch (IOException e1)
                 {
