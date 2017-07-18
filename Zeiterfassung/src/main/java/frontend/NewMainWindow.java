@@ -50,8 +50,10 @@ public class NewMainWindow extends JFrame
 
     public static void main(String[] args)
     {
-        NewMainWindow mw = new NewMainWindow();
-        mw.setVisible(true);
+        NewMainWindow newMainWindow= new NewMainWindow();
+        newMainWindow.setContentPane(new NewMainWindow().mainPanel);
+        newMainWindow.pack();
+        newMainWindow.setVisible(true);
     }
 
     public NewMainWindow()
