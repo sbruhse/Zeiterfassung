@@ -129,6 +129,10 @@ public class Projekt extends Datei<Projekt>
 		this.setBereich(bereich);
 	}
 
+	public Projekt(String name) {
+		this.setName(name);
+	}
+
 	public final static String path = "/projekte.json";
 
 	public static String getPath()
