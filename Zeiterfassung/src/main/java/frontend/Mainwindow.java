@@ -186,6 +186,23 @@ public class Mainwindow extends JFrame implements ActionListener {
         });
 
         /*
+        Button zum Editieren einer Aufgabe
+        */
+        JButton jBEditAufgabe = new JButton("Aufgaben bearbeiten");
+        jPanel.add(jBEditAufgabe);
+        jBEditAufgabe.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame editAufgabenWindow = new JFrame("EditAufgabenWindow");
+                editAufgabenWindow.setContentPane(new EditAufgabenWindow().editAufgabenPanel);
+                editAufgabenWindow.pack();
+                editAufgabenWindow.setVisible(true);
+            }
+        });
+
+
+
+        /*
         New Main Window
          */
         JButton jBNewMainWindow = new JButton("New Main Window");
