@@ -30,6 +30,8 @@ public class NewMainWindow extends JFrame {
     private JButton stopButton;
     private JTextArea textArea1;
     private JComboBox cBAufgabe;
+    private JLabel labelStart;
+    private JLabel labelZeit;
 
     public NewMainWindow() {
 
@@ -48,7 +50,6 @@ public class NewMainWindow extends JFrame {
 
 
     	//Eventhandler
-        loadProjektTree();
         startButton.addActionListener(new ActionListener()
         {
             @Override

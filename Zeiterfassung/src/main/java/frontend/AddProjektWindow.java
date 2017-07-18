@@ -17,7 +17,6 @@ import java.util.ArrayList;
 public class AddProjektWindow extends JFrame
 {
     private JTextField textFieldName;
-    private JComboBox comboBoxUeberProj;
     private JComboBox comboBoxBereich;
     private JComboBox comboBoxAuftraggeber;
     private JButton hinzufuegenButton;
@@ -36,13 +35,6 @@ public class AddProjektWindow extends JFrame
                 newProjekt.setBereich((Bereich) comboBoxBereich.getSelectedItem());
                 newProjekt.setAuftraggeber((Auftraggeber) comboBoxAuftraggeber.getSelectedItem());
                 ArrayList<Projekt> speicherprojekte = new ArrayList<>();
-                if(!comboBoxUeberProj.getSelectedItem().toString().equals("kein"))
-                {
-                    if(comboBoxUeberProj.getSelectedItem()!=null)
-                        speicherprojekte.add((Projekt)comboBoxUeberProj.getSelectedItem());
-                }
-
-                newProjekt.setUeberprojekt(speicherprojekte);
 
                 try
                 {
@@ -76,12 +68,10 @@ public class AddProjektWindow extends JFrame
             e.printStackTrace();
         }
         
-        
-        for(Projekt p : projekte) comboBoxUeberProj.addItem(p);
+
         for(Bereich p : bereiche) comboBoxBereich.addItem(p);
         for(Auftraggeber p : auftraggeber) comboBoxAuftraggeber.addItem(p);
 
-        comboBoxUeberProj.insertItemAt("kein",0);
         
     }
 
@@ -107,8 +97,6 @@ public class AddProjektWindow extends JFrame
         textFieldName = new JTextField();
         textFieldName.setText("");
         mainPanel.add(textFieldName, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
-        comboBoxUeberProj = new JComboBox();
-        mainPanel.add(comboBoxUeberProj, new com.intellij.uiDesigner.core.GridConstraints(1, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         comboBoxBereich = new JComboBox();
         final DefaultComboBoxModel defaultComboBoxModel1 = new DefaultComboBoxModel();
         comboBoxBereich.setModel(defaultComboBoxModel1);

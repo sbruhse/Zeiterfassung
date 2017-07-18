@@ -65,24 +65,6 @@ public class Projekt extends Datei<Projekt>
 	}
 
 	/**
-	 * Getter für {@link #ueberprojekt ueberprojekt}
-	 * @return
-	 */
-	public Projekt getUeberprojekt()
-	{
-		return ueberprojekt;
-	}
-
-	/**
-	 * Setter für {@link #ueberprojekt ueberprojekt}
-	 * @param ueberprojekt
-	 */
-	public void setUeberprojekt(Projekt ueberprojekt)
-	{
-		this.ueberprojekt = ueberprojekt;
-	}
-
-	/**
 	 * Getter für {@link #bereich bereich}
 	 * @return
 	 */
