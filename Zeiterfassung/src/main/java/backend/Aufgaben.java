@@ -22,7 +22,7 @@ public class Aufgaben extends Datei<Aufgaben>{
 
     //Deklaration
     private int taskId;
-    private String taskName;
+        private String taskName;
     private String taskDescription;
     private Date taskDeadline;
     private Projekt projekt;

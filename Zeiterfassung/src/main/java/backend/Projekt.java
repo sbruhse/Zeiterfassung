@@ -57,7 +57,7 @@ public class Projekt extends Datei<Projekt>
 		adr1.setOrt("Kiel");
 		adr1.setPlz("123");
 		adr1.setStrasse("Weg 5");
-		Rechnung neueRechnung = new Rechnung(sum, 5, "FIRMA SCHMIDT", adr1.getAdressString(), 7);
+		Rechnung neueRechnung = new Rechnung(sum, stundensatz, "FIRMA SCHMIDT", adr1.getAdressString(), 7);
 		neueRechnung.rechnungErstellen();
 		neueRechnung.rechnungDrucken(getName());
 		

@@ -23,6 +23,7 @@ public class AddProjektWindow extends JFrame {
     private JComboBox comboBoxAuftraggeber;
     private JButton hinzufuegenButton;
     public JPanel mainPanel;
+    private JTextField textFieldStundensatz;
 
     public AddProjektWindow() {
 
@@ -33,6 +34,7 @@ public class AddProjektWindow extends JFrame {
                 newProjekt.setName(textFieldName.getText());
                 newProjekt.setBereich((Bereich) comboBoxBereich.getSelectedItem());
                 newProjekt.setAuftraggeber((Auftraggeber) comboBoxAuftraggeber.getSelectedItem());
+                newProjekt.setStundensatz(Float.parseFloat(textFieldStundensatz.getText()));
                 ArrayList<Projekt> speicherprojekte = new ArrayList<>();
 
                 try {
@@ -48,7 +50,7 @@ public class AddProjektWindow extends JFrame {
         });
 
 
-        //#######################Projekte, Bereiche und Auftraggeber-Boxen füllen
+        //Projekte, Bereiche und Auftraggeber-Boxen füllen
 
         ArrayList<Projekt> projekte = new ArrayList<>();
         ArrayList<Bereich> bereiche = new ArrayList<>();
@@ -85,7 +87,7 @@ public class AddProjektWindow extends JFrame {
      */
     private void $$$setupUI$$$() {
         mainPanel = new JPanel();
-        mainPanel.setLayout(new GridLayoutManager(4, 2, new Insets(10, 10, 10, 10), -1, -1));
+        mainPanel.setLayout(new GridLayoutManager(5, 2, new Insets(10, 10, 10, 10), -1, -1));
         textFieldName = new JTextField();
         textFieldName.setText("");
         mainPanel.add(textFieldName, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
@@ -106,12 +108,17 @@ public class AddProjektWindow extends JFrame {
         mainPanel.add(label3, new GridConstraints(2, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JPanel panel1 = new JPanel();
         panel1.setLayout(new GridLayoutManager(1, 2, new Insets(0, 0, 0, 0), -1, -1));
-        mainPanel.add(panel1, new GridConstraints(3, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+        mainPanel.add(panel1, new GridConstraints(4, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         hinzufuegenButton = new JButton();
         hinzufuegenButton.setText("Hinzufügen");
         panel1.add(hinzufuegenButton, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final Spacer spacer1 = new Spacer();
         panel1.add(spacer1, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
+        textFieldStundensatz = new JTextField();
+        mainPanel.add(textFieldStundensatz, new GridConstraints(3, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
+        final JLabel label4 = new JLabel();
+        label4.setText("Stundensatz ");
+        mainPanel.add(label4, new GridConstraints(3, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
     }
 
     /**
