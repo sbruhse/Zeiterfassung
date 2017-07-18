@@ -1,6 +1,8 @@
 package backend;
 
 import java.io.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Rechnung extends Dokument
 {
@@ -11,6 +13,7 @@ public class Rechnung extends Dokument
     private String reName = "Unknown";
     private String reAdresse = "deafault 00; 999999";
     private int reNr = 0;
+    private Date datum;
 
     //Getter & Setter
     public float getAreitszeit(){ return arbeitszeit; }
@@ -44,6 +47,7 @@ public class Rechnung extends Dokument
     public Rechnung()
     {
         this.preis = this.preisBerechnen();
+        datum = new Date();
     }
 
     //übliches Konstrukt zur Rechnungserstellung
@@ -54,6 +58,7 @@ public class Rechnung extends Dokument
         this.reName = reName;
         this.reAdresse = reAdresse;
         this.reNr = reNr;
+        datum = new Date();
     }
 
 
@@ -82,6 +87,8 @@ public class Rechnung extends Dokument
     private boolean writeFile(File file){
 
         PrintWriter pWriter = null;
+        SimpleDateFormat simpleDate = new SimpleDateFormat("dd.MM.YYYY");
+
 
         try {
             pWriter = new PrintWriter(new BufferedWriter(new FileWriter(file)));
@@ -91,8 +98,11 @@ public class Rechnung extends Dokument
             pWriter.println();
             pWriter.println();
             pWriter.println("Rechnungsnummer: " + this.reNr);
-            pWriter.println("Rechnungsname: " + this.reName);
-            pWriter.println("Adresse: " + this.reAdresse);
+            pWriter.println("Datum: " + simpleDate.format(datum));
+            pWriter.println();
+            pWriter.println("Name: " + this.reName);
+            pWriter.println("Adresse: ");
+            pWriter.println(this.reAdresse);
             pWriter.println();
             pWriter.println("-------------------------------------");
             pWriter.println();
