@@ -128,10 +128,17 @@ public class Arbeitsblock extends Datei<Arbeitsblock>
 		this.beschreibung = beschreibung;
 	}
 
+	/**
+	 * 
+	 * @param aufgabe Zugeordnete Aufgabe
+	 */
 	public Arbeitsblock(Aufgaben aufgabe)
 	{
 		setAufgabe(aufgabe);
 	}
+	
+	//Leerer Konstruktor
+	public Arbeitsblock() {}
 
 	/**
 	 * Startet einen Arbeitsblock

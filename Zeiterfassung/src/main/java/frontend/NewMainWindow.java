@@ -1,5 +1,6 @@
 package frontend;
 
+import backend.Arbeitsblock;
 import backend.Bereich;
 
 import javax.swing.*;
@@ -12,12 +13,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by sbruhse on 17.07.2017.
  */
 public class NewMainWindow extends JFrame {
     public JPanel mainPanel;
+    public Arbeitsblock aktuellerBlock;
     private JButton auftraggeberButton;
     private JButton identitätenButton;
     private JPanel leftPanel;
@@ -28,12 +31,16 @@ public class NewMainWindow extends JFrame {
     private JTextArea textArea1;
 
     public NewMainWindow() {
+    	
+    	aktuellerBlock =  new Arbeitsblock();
+    	
         startButton.addActionListener(new ActionListener()
         {
             @Override
             public void actionPerformed(ActionEvent e)
             {
-
+            	aktuellerBlock.setStartzeit(new Date());
+            	aktuellerBlock.setBeschreibung(textArea1.getText());
             }
         });
         stopButton.addActionListener(new ActionListener()
@@ -41,9 +48,17 @@ public class NewMainWindow extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e)
             {
-
+            	aktuellerBlock.setEndzeit(new Date());
+            	aktuellerBlock.setBeschreibung(textArea1.getText());
             }
         });
+        
+        
+    }
+    
+    public void datenSetzen()
+    {
+    	
     }
 
 //    public void loadProjektTree()
