@@ -61,6 +61,7 @@ public class NewMainWindow extends JFrame
 
         loadProjektTree();
         loadAufgaben();
+        stopButton.setVisible(false);
         //Combobox füllen
         ArrayList<Aufgaben> aufgabenliste = new ArrayList<>();
         try
@@ -83,6 +84,8 @@ public class NewMainWindow extends JFrame
             {
                 aktuellerBlock.arbeitsblockStarten();
                 datenSetzen();
+                stopButton.setVisible(true);
+                startButton.setVisible(false);
             }
         });
 
@@ -103,6 +106,8 @@ public class NewMainWindow extends JFrame
 
                     //Block zurücksetzen
                     aktuellerBlock = new Arbeitsblock();
+                    stopButton.setVisible(false);
+                    startButton.setVisible(true);
                 }
                 catch (IOException e1)
                 {
