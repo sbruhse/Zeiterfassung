@@ -200,6 +200,21 @@ public class Mainwindow extends JFrame implements ActionListener {
             }
         });
 
+        /*
+        Button zum Editieren eines Projekts
+        */
+        JButton jBEditProjekt = new JButton("Projekt bearbeiten");
+        jPanel.add(jBEditProjekt);
+        jBEditProjekt.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame editProjektWindow = new JFrame("EditProjektWindow");
+                editProjektWindow.setContentPane(new EditProjektWindow().mainPanel);
+                editProjektWindow.pack();
+                editProjektWindow.setVisible(true);
+            }
+        });
+
 
 
         /*
