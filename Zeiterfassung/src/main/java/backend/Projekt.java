@@ -27,6 +27,31 @@ public class Projekt extends Datei<Projekt>
 	 * Bereich für welchen das Projekt ist
 	 */
 	private Bereich bereich;
+	
+	public float getStundensatz() {
+		return stundensatz;
+	}
+
+	public void setStundensatz(float stundensatz) {
+		this.stundensatz = stundensatz;
+	}
+
+	private float stundensatz;
+	
+	public void projektDrucken()
+	{
+		ArrayList<Aufgaben> projektaufgaben = Aufgaben.getAufgaben(this);
+		float sum =  0;
+		for(Aufgaben a:projektaufgaben)
+		{
+			ArrayList<Arbeitsblock> bloecke = Arbeitsblock.getAufgabenbloecke(a);
+			for(Arbeitsblock ab:bloecke) sum += ab.getStunden();
+			
+		}
+		Rechnung neueRechnung = new Rechnung(sum, (float) 5.0, auftraggeber.getNachname(), "Hier und da", 7);
+
+		
+	}
 
 	/**
 	 * Getter für {@link #name name}
