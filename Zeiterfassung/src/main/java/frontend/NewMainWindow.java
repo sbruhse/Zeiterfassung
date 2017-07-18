@@ -142,7 +142,7 @@ public class NewMainWindow extends JFrame
             @Override
             public void actionPerformed(ActionEvent e)
             {
-
+            	selectedProjekt.projektDrucken();
             }
         });
         bearbeitenButton.addActionListener(new ActionListener()

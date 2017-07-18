@@ -12,12 +12,12 @@ public class Auftraggeber extends Datei<Auftraggeber>
 	/**
 	 * Vorname des Auftraggebers
 	 */
-	private String vorname;
+	private String vorname="";
 
 	/**
 	 * Nachname des Auftraggebers
 	 */
-	private String nachname;
+	private String nachname="";
 
 	private Adresse adresse;
 	
@@ -125,9 +125,10 @@ public class Auftraggeber extends Datei<Auftraggeber>
 	public Auftraggeber(String vorname)
 	{
 		setVorname(vorname);
+		adresse = new Adresse();
 	}
 
-	public Auftraggeber(){};
+	public Auftraggeber(){adresse = new Adresse();};
 
 
 	public final static String path = "/auftraggeber.json";

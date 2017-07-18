@@ -96,12 +96,12 @@ public class Rechnung extends Dokument
             pWriter.println();
             pWriter.println("-------------------------------------");
             pWriter.println();
-            pWriter.println("Stundensatz: " + this.stundensatz);
-            pWriter.println("erbrachte Arbeitsleistung: " + this.arbeitszeit);
+            pWriter.println("Stundensatz: " + String.format("%.2f", this.stundensatz));
+            pWriter.println("erbrachte Arbeitsleistung: " + String.format("%.2f", this.arbeitszeit));
             pWriter.println();
             pWriter.println("-------------------------------------");
             pWriter.println();
-            pWriter.println("Rechnungsbetrag in €: " + this.preis);
+            pWriter.println("Rechnungsbetrag in €: " + String.format("%.2f", this.preis));
             pWriter.println("*zzgl 19 % MwSt.");
         } catch (IOException ioe) {
             ioe.printStackTrace();
