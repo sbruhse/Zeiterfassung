@@ -21,7 +21,7 @@ public class Projekt extends Datei<Projekt>
 	/**
 	 * Unterprojekte
 	 */
-	private ArrayList<Projekt> ueberprojekt;
+	private Projekt ueberprojekt = null;
 
 	/**
 	 * Bereich für welchen das Projekt ist
@@ -65,30 +65,21 @@ public class Projekt extends Datei<Projekt>
 	}
 
 	/**
-	 * Getter für {@link #ueberprojekt unterprojekt}
+	 * Getter für {@link #ueberprojekt ueberprojekt}
 	 * @return
 	 */
-	public ArrayList<Projekt> getUeberprojekt()
+	public Projekt getUeberprojekt()
 	{
 		return ueberprojekt;
 	}
 
 	/**
-	 * Setter für {@link #ueberprojekt unterprojekt}
+	 * Setter für {@link #ueberprojekt ueberprojekt}
 	 * @param ueberprojekt
 	 */
-	public void setUeberprojekt(ArrayList<Projekt> ueberprojekt)
+	public void setUeberprojekt(Projekt ueberprojekt)
 	{
 		this.ueberprojekt = ueberprojekt;
-	}
-
-	/**
-	 * Ein Unterprojekt hinzufügen
-	 * @param ueberprojekt
-	 */
-	public void addUeberprojekt(Projekt ueberprojekt)
-	{
-		getUeberprojekt().add(ueberprojekt);
 	}
 
 	/**
