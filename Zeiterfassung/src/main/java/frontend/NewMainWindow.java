@@ -21,7 +21,8 @@ import java.util.ArrayList;
 /**
  * Created by sbruhse on 17.07.2017.
  */
-public class NewMainWindow extends JFrame {
+public class NewMainWindow extends JFrame
+{
     public JPanel mainPanel;
     public Arbeitsblock aktuellerBlock;
     private JButton auftraggeberHinzufuegen;
@@ -47,7 +48,14 @@ public class NewMainWindow extends JFrame {
 
     Projekt selectedProjekt = null;
 
-    public NewMainWindow() {
+    public static void main(String[] args)
+    {
+        NewMainWindow mw = new NewMainWindow();
+        mw.setVisible(true);
+    }
+
+    public NewMainWindow()
+    {
 
         aktuellerBlock = new Arbeitsblock();
 
@@ -55,9 +63,12 @@ public class NewMainWindow extends JFrame {
         loadAufgaben();
         //Combobox füllen
         ArrayList<Aufgaben> aufgabenliste = new ArrayList<>();
-        try {
+        try
+        {
             aufgabenliste = Aufgaben.getObjectsFromJson(Aufgaben.read(Aufgaben.path), Aufgaben[].class);
-        } catch (IOException e1) {
+        }
+        catch (IOException e1)
+        {
             e1.printStackTrace();
         }
 
@@ -65,21 +76,26 @@ public class NewMainWindow extends JFrame {
 
 
         //Eventhandler
-        startButton.addActionListener(new ActionListener() {
+        startButton.addActionListener(new ActionListener()
+        {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e)
+            {
                 aktuellerBlock.arbeitsblockStarten();
                 datenSetzen();
             }
         });
 
-        stopButton.addActionListener(new ActionListener() {
+        stopButton.addActionListener(new ActionListener()
+        {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e)
+            {
                 aktuellerBlock.arbeitsblockStoppen();
                 datenSetzen();
 
-                try {
+                try
+                {
                     //Gespeicherte Blöcke laden und hinzufügen
                     ArrayList<Arbeitsblock> bloecke = Arbeitsblock.getObjectsFromJson(Arbeitsblock.read(Arbeitsblock.getPath()), Arbeitsblock[].class);
                     bloecke.add(aktuellerBlock);
@@ -87,7 +103,9 @@ public class NewMainWindow extends JFrame {
 
                     //Block zurücksetzen
                     aktuellerBlock = new Arbeitsblock();
-                } catch (IOException e1) {
+                }
+                catch (IOException e1)
+                {
                     // TODO Auto-generated catch block
                     e1.printStackTrace();
                 }
@@ -95,17 +113,21 @@ public class NewMainWindow extends JFrame {
             }
         });
 
-        cBAufgabe.addActionListener(new ActionListener() {
+        cBAufgabe.addActionListener(new ActionListener()
+        {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e)
+            {
 
             }
         });
 
 
-        treeProjekte.addTreeSelectionListener(new TreeSelectionListener() {
+        treeProjekte.addTreeSelectionListener(new TreeSelectionListener()
+        {
             @Override
-            public void valueChanged(TreeSelectionEvent e) {
+            public void valueChanged(TreeSelectionEvent e)
+            {
                 DefaultMutableTreeNode node = (DefaultMutableTreeNode) treeProjekte.getLastSelectedPathComponent();
                 if (node == null || node.getUserObject().getClass() == Bereich.class)
                     selectedProjekt = null;
@@ -139,41 +161,129 @@ public class NewMainWindow extends JFrame {
 
             }
         });
+        projektNeuButton.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                JFrame addProjektWindow = new JFrame("AddProjektWindow");
+                addProjektWindow.setContentPane(new AddProjektWindow().mainPanel);
+                addProjektWindow.pack();
+                addProjektWindow.setVisible(true);
+            }
+        });
+        bereichNeuButton.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame addBereichWindow = new JFrame("AddBereichWindow");
+                addBereichWindow.setContentPane(new AddBereichWindow().mainPanel);
+                addBereichWindow.pack();
+                addBereichWindow.setVisible(true);
+            }
+        });
+        auftraggeberHinzufuegen.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame addAuftraggeberWindow = new JFrame("AddAuftraggeberWindow");
+                addAuftraggeberWindow.setContentPane(new AddAuftraggeberWindow().mainPanel);
+                addAuftraggeberWindow.pack();
+                addAuftraggeberWindow.setVisible(true);
+            }
+        });
+        auftraggeberBearbeitenButton.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame editAuftraggeberWindow = new JFrame("EditAuftraggeberWindow");
+                editAuftraggeberWindow.setContentPane(new EditAuftraggeberWindow().editAuftraggeberPanel);
+                editAuftraggeberWindow.pack();
+                editAuftraggeberWindow.setVisible(true);
+            }
+        });
+        identitätenNeuButton.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame addIdentitaetWindow = new JFrame("AddIdentitaetWindow");
+                addIdentitaetWindow.setContentPane(new AddIdentitaetWindow().mainPanelIdentitaet);
+                addIdentitaetWindow.pack();
+                addIdentitaetWindow.setVisible(true);
+            }
+        });
+        identitätenBearbeitenButton.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame editIdentWindow = new JFrame("EditIdentitaetWindow");
+                editIdentWindow.setContentPane(new EditIdentitaetWindow().editIdentPanel);
+                editIdentWindow.pack();
+                editIdentWindow.setVisible(true);
+            }
+        });
+        aufgabeNeuButton.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame addAufgabeWindow = new JFrame("AddAufgabeWindow");
+                addAufgabeWindow.setContentPane(new AddAufgabeWindow().mainPanel);
+                addAufgabeWindow.pack();
+                addAufgabeWindow.setVisible(true);
+            }
+        });
+        aufgabeBearbeitenButton.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+
+            }
+        });
     }
 
 
-    public void datenSetzen() {
+    public void datenSetzen()
+    {
         aktuellerBlock.setBeschreibung(textArea1.getText());
         aktuellerBlock.setAufgabe((Aufgaben) cBAufgabe.getSelectedItem());
     }
 
-    public void loadAufgaben() {
-        if (selectedProjekt != null) {
+    public void loadAufgaben()
+    {
+        if (selectedProjekt != null)
+        {
 
             ArrayList<Aufgaben> aufgaben = Aufgaben.getAufgaben(selectedProjekt);
 
             cBAufgabe.removeAllItems();
-            for(Aufgaben a:aufgaben)
+            for (Aufgaben a : aufgaben)
                 cBAufgabe.addItem(a);
-        } else
+        }
+        else
             cBAufgabe.removeAllItems();
     }
 
-    public void loadProjektTree() {
+    public void loadProjektTree()
+    {
 
         TreeModel projektTreeModel;
 
-        try {
+        try
+        {
 
             ArrayList<Bereich> bereiche = Bereich.getObjectsFromJson(Bereich.read(Bereich.getPath()), Bereich[].class);
             ArrayList<Projekt> projekte = Projekt.getObjectsFromJson(Projekt.read(Projekt.getPath()), Projekt[].class);
 
             DefaultMutableTreeNode root = new DefaultMutableTreeNode("Projekte");
 
-            for (Bereich b : bereiche) {
+            for (Bereich b : bereiche)
+            {
                 DefaultMutableTreeNode defaultMutableTreeNode = new DefaultMutableTreeNode(b);
-                for (Projekt p : projekte) {
-                    if (p.getBereich().getName().equals(b.getName())) {
+                for (Projekt p : projekte)
+                {
+                    if (p.getBereich().getName().equals(b.getName()))
+                    {
                         defaultMutableTreeNode.add(new DefaultMutableTreeNode(p));
                     }
 
@@ -183,7 +293,9 @@ public class NewMainWindow extends JFrame {
 
             treeProjekte.setModel(new DefaultTreeModel(root));
 
-        } catch (IOException e) {
+        }
+        catch (IOException e)
+        {
             e.printStackTrace();
         }
     }
@@ -203,19 +315,37 @@ public class NewMainWindow extends JFrame {
      *
      * @noinspection ALL
      */
-    private void $$$setupUI$$$() {
+    private void $$$setupUI$$$()
+    {
         mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout(0, 0));
         final JToolBar toolBar1 = new JToolBar();
         mainPanel.add(toolBar1, BorderLayout.NORTH);
         auftraggeberHinzufuegen = new JButton();
-        auftraggeberHinzufuegen.setText("Auftraggeber");
+        auftraggeberHinzufuegen.setText("Auftraggeber neu");
         toolBar1.add(auftraggeberHinzufuegen);
+        auftraggeberBearbeitenButton = new JButton();
+        auftraggeberBearbeitenButton.setText("Auftraggeber bearbeiten");
+        toolBar1.add(auftraggeberBearbeitenButton);
+        final JToolBar.Separator toolBar$Separator1 = new JToolBar.Separator();
+        toolBar1.add(toolBar$Separator1);
         identitätenNeuButton = new JButton();
-        identitätenNeuButton.setText("Identitäten");
+        identitätenNeuButton.setText("Identitäten neu");
         toolBar1.add(identitätenNeuButton);
+        identitätenBearbeitenButton = new JButton();
+        identitätenBearbeitenButton.setText("Identitäten bearbeiten");
+        toolBar1.add(identitätenBearbeitenButton);
+        final JToolBar.Separator toolBar$Separator2 = new JToolBar.Separator();
+        toolBar1.add(toolBar$Separator2);
+        aufgabeNeuButton = new JButton();
+        aufgabeNeuButton.setText("Aufgabe neu");
+        toolBar1.add(aufgabeNeuButton);
+        aufgabeBearbeitenButton = new JButton();
+        aufgabeBearbeitenButton.setText("Aufgabe bearbeiten");
+        toolBar1.add(aufgabeBearbeitenButton);
         leftPanel = new JPanel();
-        leftPanel.setLayout(new GridLayoutManager(2, 1, new Insets(0, 0, 0, 0), -1, -1));
+        leftPanel.setLayout(new GridLayoutManager(3, 1, new Insets(0, 0, 0, 0), -1, -1));
+        leftPanel.setMinimumSize(new Dimension(500, 450));
         mainPanel.add(leftPanel, BorderLayout.WEST);
         treeProjekte = new JTree();
         leftPanel.add(treeProjekte, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
@@ -230,6 +360,15 @@ public class NewMainWindow extends JFrame {
         löschenButton = new JButton();
         löschenButton.setText("Löschen");
         toolBar2.add(löschenButton);
+        final JToolBar toolBar3 = new JToolBar();
+        toolBar3.setFloatable(true);
+        leftPanel.add(toolBar3, new GridConstraints(2, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(-1, 20), null, 0, false));
+        projektNeuButton = new JButton();
+        projektNeuButton.setText("Projekt neu");
+        toolBar3.add(projektNeuButton);
+        bereichNeuButton = new JButton();
+        bereichNeuButton.setText("Bereich neu");
+        toolBar3.add(bereichNeuButton);
         centerPanel = new JPanel();
         centerPanel.setLayout(new GridLayoutManager(5, 1, new Insets(0, 0, 0, 0), -1, -1));
         centerPanel.setMinimumSize(new Dimension(400, 300));
@@ -311,7 +450,8 @@ public class NewMainWindow extends JFrame {
     /**
      * @noinspection ALL
      */
-    public JComponent $$$getRootComponent$$$() {
+    public JComponent $$$getRootComponent$$$()
+    {
         return mainPanel;
     }
 }

@@ -70,7 +70,6 @@ public class Mainwindow extends JFrame implements ActionListener {
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                System.out.println("Bin hier");
                 JFrame addProjektWindow = new JFrame("AddProjektWindow");
                 addProjektWindow.setContentPane(new AddProjektWindow().mainPanel);
                 addProjektWindow.pack();
