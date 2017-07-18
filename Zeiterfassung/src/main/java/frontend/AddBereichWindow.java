@@ -22,24 +22,18 @@ public class AddBereichWindow {
     public JPanel mainPanel;
 
 
-    public AddBereichWindow()
-    {
+    public AddBereichWindow() {
 
-        hinzufügenButton.addActionListener(new ActionListener()
-        {
+        hinzufügenButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e)
-            {
+            public void actionPerformed(ActionEvent e) {
                 Bereich newBereich = new Bereich(textField1.getText());
 
-                try
-                {
+                try {
                     ArrayList<Bereich> bereiche = Bereich.getObjectsFromJson(Bereich.read(Bereich.getPath()), Bereich[].class);
                     bereiche.add(newBereich);
-                    Bereich.write(Bereich.getPath(),Bereich.getJsonFromObjects(bereiche));
-                }
-                catch (IOException e1)
-                {
+                    Bereich.write(Bereich.getPath(), Bereich.getJsonFromObjects(bereiche));
+                } catch (IOException e1) {
                     e1.printStackTrace();
                 }
             }

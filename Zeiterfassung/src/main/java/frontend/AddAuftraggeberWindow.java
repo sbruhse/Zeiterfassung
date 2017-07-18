@@ -24,32 +24,28 @@ public class AddAuftraggeberWindow {
     private JButton hinzufügenButton;
     public JPanel mainPanel;
 
-    public AddAuftraggeberWindow()
-    {
+    public AddAuftraggeberWindow() {
 
-        hinzufügenButton.addActionListener(new ActionListener()
-        {
+        hinzufügenButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e)
-            {
+            public void actionPerformed(ActionEvent e) {
                 Auftraggeber newAuftraggeber = new Auftraggeber(textFieldVorname.getText());
-                if(!textFieldNachname.getText().equals(""))
+                if (!textFieldVorname.getText().equals(""))
+                    newAuftraggeber.setVorname((textFieldVorname.getText()));
+                if (!textFieldNachname.getText().equals(""))
                     newAuftraggeber.setNachname(textFieldNachname.getText());
-                if(!textFieldStadt.getText().equals(""))
+                if (!textFieldStadt.getText().equals(""))
                     newAuftraggeber.setStadt(textFieldStadt.getText());
-                if(!textFieldPlz.getText().equals(""))
+                if (!textFieldPlz.getText().equals(""))
                     newAuftraggeber.setPlz(textFieldPlz.getText());
-                if(!textFieldStrasse.getText().equals(""))
+                if (!textFieldStrasse.getText().equals(""))
                     newAuftraggeber.setStrasse(textFieldStrasse.getText());
 
-                try
-                {
-                    ArrayList<Auftraggeber> auftraggeber = Auftraggeber.getObjectsFromJson(Auftraggeber.read(Auftraggeber.getPath()),Auftraggeber[].class);
+                try {
+                    ArrayList<Auftraggeber> auftraggeber = Auftraggeber.getObjectsFromJson(Auftraggeber.read(Auftraggeber.getPath()), Auftraggeber[].class);
                     auftraggeber.add(newAuftraggeber);
-                    Auftraggeber.write(Auftraggeber.getPath(),Auftraggeber.getJsonFromObjects(auftraggeber));
-                }
-                catch (IOException e1)
-                {
+                    Auftraggeber.write(Auftraggeber.getPath(), Auftraggeber.getJsonFromObjects(auftraggeber));
+                } catch (IOException e1) {
                     e1.printStackTrace();
                 }
             }
@@ -80,8 +76,10 @@ public class AddAuftraggeberWindow {
         textFieldStadt = new JTextField();
         mainPanel.add(textFieldStadt, new GridConstraints(2, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         textFieldPlz = new JTextField();
+        textFieldPlz.setText("");
         mainPanel.add(textFieldPlz, new GridConstraints(3, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         textFieldStrasse = new JTextField();
+        textFieldStrasse.setText("");
         mainPanel.add(textFieldStrasse, new GridConstraints(4, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         final JLabel label1 = new JLabel();
         label1.setText("Vorname");
@@ -102,7 +100,7 @@ public class AddAuftraggeberWindow {
         panel1.setLayout(new GridLayoutManager(2, 1, new Insets(0, 0, 0, 0), -1, -1));
         mainPanel.add(panel1, new GridConstraints(5, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         hinzufügenButton = new JButton();
-        hinzufügenButton.setText("Button");
+        hinzufügenButton.setText("Hinzufügen");
         panel1.add(hinzufügenButton, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final Spacer spacer1 = new Spacer();
         panel1.add(spacer1, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));

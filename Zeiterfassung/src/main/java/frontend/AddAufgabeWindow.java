@@ -22,33 +22,27 @@ public class AddAufgabeWindow {
     private JTextArea textArea1;
     private JTextField textField2;
     private JButton hinzufügenButton;
-    
-    public AddAufgabeWindow()
-    {
-        hinzufügenButton.addActionListener(new ActionListener()
-        {
+
+    public AddAufgabeWindow() {
+        hinzufügenButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e)
-            {
+            public void actionPerformed(ActionEvent e) {
                 Aufgaben newAufgabe = new Aufgaben();
                 newAufgabe.setTaskDeadline(textField2.getText());
                 newAufgabe.setTaskDescription(textArea1.getText());
                 newAufgabe.setTaskName(textField1.getText());
-                
 
-                try
-                {
+
+                try {
                     ArrayList<Aufgaben> bereiche = Aufgaben.getObjectsFromJson(Aufgaben.read(Aufgaben.getPath()), Aufgaben[].class);
                     bereiche.add(newAufgabe);
-                    Aufgaben.write(Aufgaben.getPath(),Aufgaben.getJsonFromObjects(bereiche));
-                }
-                catch (IOException e1)
-                {
+                    Aufgaben.write(Aufgaben.getPath(), Aufgaben.getJsonFromObjects(bereiche));
+                } catch (IOException e1) {
                     e1.printStackTrace();
                 }
             }
         });
-    	
+
     }
 
     {
