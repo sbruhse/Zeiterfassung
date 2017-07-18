@@ -70,7 +70,6 @@ public class Mainwindow extends JFrame implements ActionListener {
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                System.out.println("Bin hier");
                 JFrame addProjektWindow = new JFrame("AddProjektWindow");
                 addProjektWindow.setContentPane(new AddProjektWindow().mainPanel);
                 addProjektWindow.pack();
@@ -185,6 +184,23 @@ public class Mainwindow extends JFrame implements ActionListener {
                 editAuftraggeberWindow.setVisible(true);
             }
         });
+
+        /*
+        Button zum Editieren einer Aufgabe
+        */
+        JButton jBEditAufgabe = new JButton("Aufgaben bearbeiten");
+        jPanel.add(jBEditAufgabe);
+        jBEditAufgabe.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame editAufgabenWindow = new JFrame("EditAufgabenWindow");
+                editAufgabenWindow.setContentPane(new EditAufgabenWindow().editAufgabenPanel);
+                editAufgabenWindow.pack();
+                editAufgabenWindow.setVisible(true);
+            }
+        });
+
+
 
         /*
         New Main Window
