@@ -23,10 +23,6 @@ public class Arbeitsblock extends Datei<Arbeitsblock>
 	 */
 	private Date endzeit;
 
-	/**
-	 * Bereich, für den die Arbeit verrichtet wurde
-	 */
-	private Bereich bereich;
 
 	/**
 	 * Aufgabe, die erledigt wurde
@@ -74,23 +70,6 @@ public class Arbeitsblock extends Datei<Arbeitsblock>
 		this.endzeit = endzeit;
 	}
 
-	/**
-	 * Getter für {@link #bereich bereich}
-	 * @return Bereich
-	 */
-	public Bereich getBereich() 
-	{
-		return bereich;
-	}
-
-	/**
-	 * Setter für {@link #bereich bereich}
-	 * @param bereich Bereich
-	 */
-	public void setBereich(Bereich bereich) 
-	{
-		this.bereich = bereich;
-	}
 
 	/**
 	 * Getter für {@link #aufgabe aufgabe}

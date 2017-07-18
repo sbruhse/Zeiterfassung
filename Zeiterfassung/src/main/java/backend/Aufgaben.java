@@ -23,11 +23,20 @@ public class Aufgaben extends Datei<Aufgaben>{
     private String taskName;
     private String taskDescription;
     private Date taskDeadline;
+    private Projekt projekt;
 
 
 
 
-    public int getTaskId() {
+    public Projekt getProjekt() {
+		return projekt;
+	}
+
+	public void setProjekt(Projekt projekt) {
+		this.projekt = projekt;
+	}
+
+	public int getTaskId() {
         return taskId;
     }
 
