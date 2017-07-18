@@ -7,9 +7,11 @@ import com.google.gson.JsonArray;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.Array;
 import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
@@ -88,5 +90,25 @@ public class Aufgaben extends Datei<Aufgaben>{
     public String toString()
     {
     	return getTaskName();
+    }
+
+    public static ArrayList<Aufgaben> getAufgaben(Projekt projekt)
+    {
+        ArrayList<Aufgaben> aufgaben = new ArrayList<>();
+        try
+        {
+            aufgaben = getObjectsFromJson(read(getPath()),Aufgaben[].class);
+            for(Aufgaben a:aufgaben)
+            {
+                if(!a.getProjekt().getName().equals(projekt.getName()))
+                aufgaben.remove(a);
+            }
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+
+        return aufgaben;
     }
 }
