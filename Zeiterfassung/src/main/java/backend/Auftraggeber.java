@@ -25,6 +25,7 @@ public class Auftraggeber extends Datei<Auftraggeber>
 		return adresse;
 	}
 
+
 	public void setAdresse(Adresse adresse) {
 		this.adresse = adresse;
 	}
@@ -129,6 +130,11 @@ public class Auftraggeber extends Datei<Auftraggeber>
 	}
 
 	public Auftraggeber(){adresse = new Adresse();};
+
+	public Auftraggeber(String vorname, String nachname) {
+		this.vorname = vorname;
+		this.nachname = nachname;
+	}
 
 
 	public final static String path = "/auftraggeber.json";

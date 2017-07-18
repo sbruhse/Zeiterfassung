@@ -1,13 +1,13 @@
 package frontend;
 
-import backend.Aufgaben;
-import backend.Bereich;
-import backend.Projekt;
+import backend.*;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.io.IOException;
@@ -32,15 +32,23 @@ public class EditProjektWindow {
 
     public EditProjektWindow() {
         ArrayList<Projekt> projekt = new ArrayList<>();
+        ArrayList<Bereich> bereich = new ArrayList<>();
+        ArrayList<Auftraggeber> auftraggeber = new ArrayList<>();
 
         try {
             projekt = Projekt.getObjectsFromJson(Projekt.read(Projekt.getPath()), Projekt[].class);
+            bereich = Bereich.getObjectsFromJson(Bereich.read(Bereich.getPath()), Bereich[].class);
+            auftraggeber = Auftraggeber.getObjectsFromJson(Auftraggeber.read(Auftraggeber.getPath()), Auftraggeber[].class);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         //Hinzufügen der Bereiche in die CombosBox
         for (Projekt p : projekt) comboBoxProjekte.addItem(p);
+        for (Bereich b : bereich) comboBoxBereich.addItem(b.getName());
+        for (Auftraggeber a : auftraggeber) comboBoxAuftraggeber.addItem(a.getNachname());
+
+
         textFieldName.setText(comboBoxProjekte.getSelectedItem().toString());
         try {
             ArrayList<Projekt> projektArr = Projekt.getObjectsFromJson(Projekt.read(Projekt.getPath()), Projekt[].class);
@@ -66,13 +74,81 @@ public class EditProjektWindow {
                         for (Projekt aProjektArr : projektArr) {
                             if (Objects.equals(comboBoxProjekte.getSelectedItem().toString(), aProjektArr.getName())) {
                                 textFieldStundensatz.setText(Float.toString(aProjektArr.getStundensatz()));
-                                comboBoxBereich.setSelectedItem();
+                                comboBoxBereich.setSelectedItem(aProjektArr.getBereich().getName());
+                                comboBoxAuftraggeber.setSelectedItem(aProjektArr.getAuftraggeber().getNachname());
                                 break;
                             }
                         }
                     } catch (IOException e1) {
                         e1.printStackTrace();
                     }
+
+
+                    //Bearbeiten des jeweiligen Projekts
+                    speichernButton.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            Projekt newProjekt = new Projekt();
+
+
+                            try {
+                                ArrayList<Projekt> projektArr = Projekt.getObjectsFromJson(Projekt.read(Projekt.getPath()), Projekt[].class);
+                                ArrayList<Bereich> bereichArr = Bereich.getObjectsFromJson(Bereich.read(Bereich.getPath()), Bereich[].class);
+                                ArrayList<Auftraggeber> auftraggeberArr = Auftraggeber.getObjectsFromJson(Auftraggeber.read(Auftraggeber.getPath()), Auftraggeber[].class);
+
+
+                                for (int i = 0; i < projektArr.size(); i++) {
+                                    if (Objects.equals(comboBoxProjekte.getSelectedItem().toString(), projektArr.get(i).getName())) {
+                                        newProjekt.setName(textFieldName.getText());
+                                        newProjekt.setStundensatz(Float.parseFloat(textFieldStundensatz.getText()));
+
+                                        for (Bereich b : bereichArr) {
+                                            if(Objects.equals(comboBoxBereich.getSelectedItem().toString(), b.getName())) {
+                                                newProjekt.setBereich(new Bereich(b.getName()));
+                                            }
+                                        }
+
+                                        for (Auftraggeber a : auftraggeberArr) {
+                                            if(Objects.equals(comboBoxAuftraggeber.getSelectedItem().toString(), a.getNachname())) {
+                                                newProjekt.setAuftraggeber(new Auftraggeber(a.getVorname(), a.getNachname()));
+                                            }
+                                        }
+
+                                        projektArr.set(i, newProjekt);
+                                        Projekt.write(Projekt.getPath(), Projekt.getJsonFromObjects(projektArr));
+                                        break;
+                                    }
+                                }
+
+                            } catch (IOException e1) {
+                                e1.printStackTrace();
+                            }
+
+                        }
+                    });
+
+                    //Löschen des jeweiligen Projekts
+                    löschenButton.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+
+                            try {
+                                ArrayList<Projekt> projektArr = Projekt.getObjectsFromJson(Projekt.read(Projekt.getPath()), Projekt[].class);
+
+                                for (int i = 0; i < projektArr.size(); i++) {
+                                    if (Objects.equals(comboBoxProjekte.getSelectedItem().toString(), projektArr.get(i).getName())) {
+                                        projektArr.remove(i);
+                                        Projekt.write(Projekt.getPath(), Projekt.getJsonFromObjects(projektArr));
+                                        break;
+                                    }
+                                }
+
+                            } catch (IOException e1) {
+                                e1.printStackTrace();
+                            }
+
+                        }
+                    });
 
 
 
