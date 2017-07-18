@@ -32,21 +32,25 @@ public class NewMainWindow extends JFrame {
 
     public NewMainWindow() {
 
-        aktuellerBlock = new Arbeitsblock();
+    	aktuellerBlock =  new Arbeitsblock();
 
         loadProjektTree();
-        startButton.addActionListener(new ActionListener() {
+        startButton.addActionListener(new ActionListener()
+        {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                aktuellerBlock.setStartzeit(new Date());
-                aktuellerBlock.setBeschreibung(textArea1.getText());
+            public void actionPerformed(ActionEvent e)
+            {
+            	aktuellerBlock.setStartzeit(new Date());
+            	aktuellerBlock.setBeschreibung(textArea1.getText());
             }
         });
-        stopButton.addActionListener(new ActionListener() {
+        stopButton.addActionListener(new ActionListener()
+        {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                aktuellerBlock.setEndzeit(new Date());
-                aktuellerBlock.setBeschreibung(textArea1.getText());
+            public void actionPerformed(ActionEvent e)
+            {
+            	aktuellerBlock.setEndzeit(new Date());
+            	aktuellerBlock.setBeschreibung(textArea1.getText());
 
             }
         });
@@ -62,11 +66,13 @@ public class NewMainWindow extends JFrame {
 
     }
 
-    public void datenSetzen() {
+    public void datenSetzen()
+    {
 
     }
 
-    public void loadProjektTree() {
+    public void loadProjektTree()
+    {
 
         TreeModel projektTreeModel;
 
