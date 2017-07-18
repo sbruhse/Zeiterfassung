@@ -11,9 +11,10 @@ public class Rechnung extends Dokument
     private float preis;
     private float stundensatz = 79;
     private String reName = "Unknown";
-    private String reAdresse = "deafault 00; 999999";
+    private String reAdresse = "default 00; 999999";
     private int reNr = 0;
     private Date datum;
+    private String directory = System.getProperty("user.home") + "/Zeiterfassung/";
 
     //Getter & Setter
     public float getAreitszeit(){ return arbeitszeit; }
@@ -74,7 +75,7 @@ public class Rechnung extends Dokument
     public void rechnungErstellen(){
 
         String rechnung = this.reName + ".txt";
-        File myRechnung = new File(rechnung);
+        File myRechnung = new File(directory + rechnung);
         if(this.checkFile(myRechnung)){
             System.out.println(rechnung + " erzeugt");
         }
@@ -127,7 +128,7 @@ public class Rechnung extends Dokument
 
     //Rechnung drucken; Zur Sinnbildichen Darstellung wird die Rechnung in der Konsole "ausgedruckt"
     public void rechnungDrucken(String name){
-        String file = this.reName + ".txt";
+        String file = directory + this.reName + ".txt";
 
         try{
             FileReader fileReader = new FileReader(file);
