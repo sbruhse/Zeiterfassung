@@ -37,7 +37,7 @@ public class EditBereichWindow {
 
         //Hinzufügen der Bereiche in die CombosBox
         for (Bereich p : bereiche) bereicheAll.addItem(p);
-
+        bereicheName.setText(bereicheAll.getSelectedItem().toString());
 
         //Wartet auf Auswahl und zeigt diese dann im Namensfenster an
         bereicheAll.addItemListener(new ItemListener() {

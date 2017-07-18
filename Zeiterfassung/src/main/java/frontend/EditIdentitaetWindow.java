@@ -33,7 +33,7 @@ public class EditIdentitaetWindow {
         }
 
         for (Identitaet p : idents) identAll.addItem(p);
-
+        identName.setText(identAll.getSelectedItem().toString());
 
         //Wartet auf Auswahl und zeigt diese dann im Namensfenster an
         identAll.addItemListener(new ItemListener() {

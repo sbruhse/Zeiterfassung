@@ -35,12 +35,24 @@ public class EditAuftraggeberWindow {
 
         try {
             auftraggeber = Auftraggeber.getObjectsFromJson(Auftraggeber.read(Auftraggeber.getPath()), Auftraggeber[].class);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         //Hinzufügen der Auftraggeber in die ComboBox
         for (Auftraggeber p : auftraggeber) auftraggeberAll.addItem(p);
+
+        for (Auftraggeber aAuftraggeberArr : auftraggeber) {
+            if (Objects.equals(auftraggeberAll.getSelectedItem().toString(), aAuftraggeberArr.getNachname())) {
+                auftraggeberVorname.setText(aAuftraggeberArr.getVorname());
+                auftraggeberNachname.setText(aAuftraggeberArr.getNachname());
+                auftraggeberStadt.setText(aAuftraggeberArr.getStadt());
+                auftraggeberPostleitzahl.setText(aAuftraggeberArr.getPlz());
+                auftraggeberStrasse.setText(aAuftraggeberArr.getStrasse());
+                break;
+            }
+        }
 
         //Wartet auf Auswahl und zeigt diese dann im Namensfenster an
         auftraggeberAll.addItemListener(new ItemListener() {
