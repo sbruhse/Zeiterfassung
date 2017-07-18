@@ -20,6 +20,7 @@ public class EditBereichWindow {
     private JComboBox bereicheAll;
     private JTextField bereicheName;
     private JButton editButtonBereich;
+    private JButton deleteButtonBereich;
 
 
     public EditBereichWindow() {
@@ -45,6 +46,7 @@ public class EditBereichWindow {
             }
         });
 
+        //Bearbeiten des jeweiligen Bereiches
         editButtonBereich.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -55,7 +57,6 @@ public class EditBereichWindow {
 
                     for (int i = 0; i < bereicheArr.size(); i++) {
                         if (Objects.equals(bereicheAll.getSelectedItem().toString(), bereicheArr.get(i).getName())) {
-                            System.out.println("for if");
                             newBereich.setName(bereicheName.getText());
                             bereicheArr.set(i, newBereich);
                             Bereich.write(Bereich.getPath(), Bereich.getJsonFromObjects(bereicheArr));
@@ -67,11 +68,33 @@ public class EditBereichWindow {
                     e1.printStackTrace();
                 }
 
-
             }
         });
 
+        //Löschen des jeweiligen Bereiches
+        deleteButtonBereich.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Bereich newBereich = new Bereich();
 
+                try {
+                    ArrayList<Bereich> bereicheArr = Bereich.getObjectsFromJson(Bereich.read(Bereich.getPath()), Bereich[].class);
+
+                    for (int i = 0; i < bereicheArr.size(); i++) {
+                        if (Objects.equals(bereicheAll.getSelectedItem().toString(), bereicheArr.get(i).getName())) {
+                            newBereich.setName(bereicheName.getText());
+                            bereicheArr.remove(i);
+                            Bereich.write(Bereich.getPath(), Bereich.getJsonFromObjects(bereicheArr));
+                            break;
+                        }
+                    }
+
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+
+            }
+        });
 
 
     }
@@ -102,13 +125,16 @@ public class EditBereichWindow {
         bereicheName = new JTextField();
         editBereichePanel.add(bereicheName, new com.intellij.uiDesigner.core.GridConstraints(1, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         final JPanel panel1 = new JPanel();
-        panel1.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 2, new Insets(0, 0, 0, 0), -1, -1));
+        panel1.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(2, 2, new Insets(0, 0, 0, 0), -1, -1));
         editBereichePanel.add(panel1, new com.intellij.uiDesigner.core.GridConstraints(2, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         editButtonBereich = new JButton();
         editButtonBereich.setText("Speichern");
         panel1.add(editButtonBereich, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final com.intellij.uiDesigner.core.Spacer spacer1 = new com.intellij.uiDesigner.core.Spacer();
-        panel1.add(spacer1, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
+        panel1.add(spacer1, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 2, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
+        deleteButtonBereich = new JButton();
+        deleteButtonBereich.setText("Löschen");
+        panel1.add(deleteButtonBereich, new com.intellij.uiDesigner.core.GridConstraints(1, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JLabel label2 = new JLabel();
         label2.setText("Bereichsname: ");
         editBereichePanel.add(label2, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
