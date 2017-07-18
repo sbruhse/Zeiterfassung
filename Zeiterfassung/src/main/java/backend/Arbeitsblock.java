@@ -77,7 +77,7 @@ public class Arbeitsblock extends Datei<Arbeitsblock>
 	 */
 	public double getStunden()
 	{
-		return (endzeit.getTime() - startzeit.getTime()) / 1000 / 60 / 60;
+		return (endzeit.getTime() - startzeit.getTime()) / 1000.0 / 60.0 / 60.0;
 	}
 
 	/**

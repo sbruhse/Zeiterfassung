@@ -5,9 +5,14 @@ import java.io.StringWriter;
 
 public class Adresse 
 {
-	private String strasse;
-	private String ort;
-	private String plz;
+	private String strasse="";
+	private String ort="";
+	private String plz="";
+	
+	public Adresse()
+	{
+		
+	}
 
 	public String getAdressString()
 	{

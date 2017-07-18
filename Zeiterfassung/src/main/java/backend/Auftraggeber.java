@@ -12,12 +12,12 @@ public class Auftraggeber extends Datei<Auftraggeber>
 	/**
 	 * Vorname des Auftraggebers
 	 */
-	private String vorname;
+	private String vorname="";
 
 	/**
 	 * Nachname des Auftraggebers
 	 */
-	private String nachname;
+	private String nachname="";
 
 	private Adresse adresse;
 	
