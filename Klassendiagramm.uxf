@@ -3,7 +3,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>319</x>
+      <x>374</x>
       <y>330</y>
       <w>242</w>
       <h>154</h>
@@ -21,7 +21,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>770</x>
+      <x>825</x>
       <y>341</y>
       <w>231</w>
       <h>154</h>
@@ -42,7 +42,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1078</x>
+      <x>1133</x>
       <y>561</y>
       <w>209</w>
       <h>154</h>
@@ -59,7 +59,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>33</x>
+      <x>88</x>
       <y>330</y>
       <w>187</w>
       <h>154</h>
@@ -78,7 +78,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
+      <x>55</x>
       <y>583</y>
       <w>220</w>
       <h>176</h>
@@ -97,7 +97,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>506</x>
+      <x>561</x>
       <y>847</y>
       <w>176</w>
       <h>88</h>
@@ -109,7 +109,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>858</x>
+      <x>913</x>
       <y>847</y>
       <w>165</w>
       <h>88</h>
@@ -123,7 +123,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>638</x>
+      <x>693</x>
       <y>583</y>
       <w>253</w>
       <h>176</h>
@@ -142,7 +142,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>462</x>
+      <x>517</x>
       <y>539</y>
       <w>121</w>
       <h>154</h>
@@ -156,7 +156,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>572</x>
+      <x>627</x>
       <y>748</y>
       <w>209</w>
       <h>121</h>
@@ -167,7 +167,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>748</x>
+      <x>803</x>
       <y>748</y>
       <w>187</w>
       <h>121</h>
@@ -178,7 +178,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>935</x>
+      <x>990</x>
       <y>264</y>
       <w>154</w>
       <h>143</h>
@@ -189,7 +189,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>110</x>
+      <x>165</x>
       <y>473</y>
       <w>33</w>
       <h>132</h>
@@ -201,7 +201,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>572</x>
+      <x>627</x>
       <y>605</y>
       <w>88</w>
       <h>44</h>
@@ -213,7 +213,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>748</x>
+      <x>803</x>
       <y>484</y>
       <w>132</w>
       <h>121</h>
@@ -225,7 +225,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>858</x>
+      <x>913</x>
       <y>484</y>
       <w>341</w>
       <h>99</h>
@@ -237,7 +237,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>550</x>
+      <x>605</x>
       <y>396</y>
       <w>242</w>
       <h>44</h>
@@ -249,7 +249,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>814</x>
+      <x>869</x>
       <y>22</y>
       <w>209</w>
       <h>154</h>
@@ -266,7 +266,7 @@ read</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>110</x>
+      <x>165</x>
       <y>165</y>
       <w>814</w>
       <h>187</h>
@@ -277,7 +277,7 @@ read</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>891</x>
+      <x>946</x>
       <y>165</y>
       <w>319</w>
       <h>418</h>
@@ -288,7 +288,7 @@ read</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>891</x>
+      <x>946</x>
       <y>165</y>
       <w>33</w>
       <h>198</h>
@@ -299,7 +299,7 @@ read</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>429</x>
+      <x>484</x>
       <y>165</y>
       <w>495</w>
       <h>187</h>
@@ -310,7 +310,7 @@ read</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>506</x>
+      <x>561</x>
       <y>165</y>
       <w>418</w>
       <h>396</h>
